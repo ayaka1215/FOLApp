@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+    before_action :set_target_event, only: %i[show edit update destroy]
+
     def index
         @events = Event.all
     end
@@ -25,5 +27,9 @@ class EventsController < ApplicationController
     def event_params
         # TODO：FORM整えたらカラム増やす
         params.require(:event).permit(:title, :content)
+    end
+
+    def set_target_event
+        @event = Event.find(params[:id])
     end
 end
