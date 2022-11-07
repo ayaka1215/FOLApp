@@ -6,6 +6,9 @@
             </div>
         </section>
         <div class="my-3 bg-light">
+            <% if flash[:notice] %>
+              <div class="alert alert-danger"><%= flash[:notice] %></div>
+            <% end %>
             <div class="container">
             <h2 class= "py-4 text-dark">イベント一覧</h2>
             <div class="row row-cols-1 row-cols-md-3">
