@@ -28,6 +28,17 @@ class EventsController < ApplicationController
     def edit
     end
 
+    def update
+        if @event.update(event_params)
+            redirect_to @event
+        else
+            redirect_to back, flash: {
+                event: @event,
+                error_messages: @event.errors.full_messages
+            }
+        end
+    end
+
     private
 
     def event_params
