@@ -12,7 +12,7 @@ class EventsController < ApplicationController
     def create
         event = Event.new(event_params)
         if event.save
-            flash[:notice] = "「#{event.title}」の掲示板を作成しました。"
+            flash[:notice] = "「#{event.title}」のイベントを作成しました。"
             redirect_to events_path
         else
             redirect_to :back, flash: {
@@ -37,6 +37,11 @@ class EventsController < ApplicationController
                 error_messages: @event.errors.full_messages
             }
         end
+    end
+
+    def destroy
+       @event.destroy
+       redirect_to event_path, flash: { notice: "「#{@event.title}のイベントを削除しました」" }
     end
 
     private
