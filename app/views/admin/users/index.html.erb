@@ -12,14 +12,21 @@
       <th>名前</th>
       <th>メールアドレス</th>
       <th>管理権限</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
+  <% @users.each do |user| %>
     <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td><%= user.id %></td>
+        <%# TODO：名前カラムを作って置き換える %>
+        <td><%= user.id %></td>
+        <td><%= user.email %></td>
+        <%# TODO：あり・なし表示（コントローラ修正？） %>
+        <td><%= user.admin %></td>
+        <%# link_to設置 %>
+        <td>詳細</td>
     </tr>
+  <% end %>
   </tbody>
 </table>
