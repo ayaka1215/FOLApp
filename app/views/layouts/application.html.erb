@@ -22,18 +22,15 @@
                 <li class="nav-item">
                   <a class="nav-link text-white" href="#">マイページ</a>
                 </li>
-                <% if current_user.admin %>
                   <li class="nav-item">
                     <a class="nav-link text-white" href="events/new">新規投稿</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link text-white" href="events/new">ユーザー管理</a>
                   </li>
-                <% else %>
                   <li class="nav-item">
                     <a class="nav-link text-white" href="#">申し込み一覧</a>
                   </li>
-                <% end %>
                 <li class="nav-item">
                   <%= button_to 'ログアウト', destroy_user_session_path,class: 'nav-link text-white', method: :delete %>
                 </li>
