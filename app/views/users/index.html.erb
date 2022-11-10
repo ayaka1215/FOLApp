@@ -17,7 +17,7 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= user.id %></td>
-        <td><%= user.name %></td>
+        <td>name</td>
         <td><%= user.created_at %></td>
         <td><%= user.updated_at %></td>
         <td><%= link_to '詳細', user, class: 'btn btn-outline-dark' %></td>
@@ -26,5 +26,3 @@
     <% end %>
   </tbody>
 </table>
-
-<%= paginate @users %>
