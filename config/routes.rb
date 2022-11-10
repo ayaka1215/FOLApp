@@ -8,8 +8,4 @@ Rails.application.routes.draw do
   }
   resources :events
 
-  namespace :admin do
-    resources :events
-    resources :users
-  end
 end
