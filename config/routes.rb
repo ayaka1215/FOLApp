@@ -7,4 +7,8 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
   resources :events
+
+  namespace :admin do
+    resources :events
+  end
 end
