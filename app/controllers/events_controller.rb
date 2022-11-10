@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
-    before_action :set_target_event, only: %i[show]
+    before_action :set_target_event, only: %i[show edit update]
+    before_action :is_admin, only: %i[new create edit update destroy]
 
     def index
         @events = Event.all
@@ -53,5 +54,11 @@ class EventsController < ApplicationController
 
     def set_target_event
         @event = Event.find(params[:id])
+    end
+
+    def is_admin
+        unless current_user
+            redirect_to events_path
+        end
     end
 end
