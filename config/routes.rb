@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => {
     sessions: 'users/sessions'
   }
-
+  resources :users
+  get 'mypage', to: 'users#me'
   resources :events
 end
