@@ -1,9 +1,9 @@
 <div class="d-flex align-items-center mt-4 mb-4">
   <div class="ml-auto events__linkBox">
-    <% if current_user.admin %>
       <%= link_to '一覧', events_path, class: 'btn btn-outline-dark' %>
-      <%= link_to '編集', edit_event_path(@event), class: 'btn btn-outline-dark' %>
-    <% end %>
+      <% if current_user.admin %>
+        <%= link_to '編集', edit_event_path(@event), class: 'btn btn-outline-dark' %>
+      <% end %>
   </div>
 </div>
 
