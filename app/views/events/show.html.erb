@@ -14,4 +14,8 @@
   <div class="card-body">
     <p class="card-text"><%= simple_format(@event.content) %></p>
   </div>
+
+  <%# 仮置き。 %>
+  <%= link_to 'このイベントに参加する', events_path, class: 'btn btn-outline-dark' %>
+  <%= link_to '一覧へ戻る', events_path, class: 'btn btn-outline-dark' %>
 </div>
