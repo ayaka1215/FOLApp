@@ -1,10 +1,11 @@
 class Admin::UsersController < ApplicationController
+    # TODO：admin権限がないユーザーを追い出す
+
     def index
-        # @users = User.all
+        @users = User.all
     end
 
     def new
-        
     end
 
     def create
