@@ -10,5 +10,8 @@ Rails.application.routes.draw do
   }
   resources :users
   get 'mypage', to: 'users#me'
-  resources :events
+
+  resources :events do
+    resources :reservations
+  end
 end
