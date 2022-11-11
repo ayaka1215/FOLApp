@@ -34,9 +34,9 @@
   <div class="field">
     <span>Part</span>
     <%= f.collection_check_boxes(:part_ids, Part.all, :id, :name) do |part| %>
-      <div class="form-check">
-        <%= part.label class: 'form-check-label' do %>
-          <%= part.check_box class: 'form-check-input' %>
+      <div class="btn">
+        <%= part.label class: 'btn btn-secondary' do %>
+          <%= part.check_box class: 'btn-check' %>
           <%= part.text %>
         <% end %>
       </div>
