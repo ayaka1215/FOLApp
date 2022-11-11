@@ -27,5 +27,6 @@ class UsersController < ApplicationController
     def is_admin
         unless current_user.admin
             redirect_to events_path
+        end
     end
 end
