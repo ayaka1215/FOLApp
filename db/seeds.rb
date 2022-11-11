@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+if Rails.env == 'development'
+    Part.create([
+        { name: 'Vocal' },
+        { name: 'Guitar' },
+        { name: 'Bass' },
+        { name: 'Keyboard'},
+        { name: 'Drum'}
+    ])
+end
