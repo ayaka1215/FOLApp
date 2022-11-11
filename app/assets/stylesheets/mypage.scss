@@ -1,0 +1,13 @@
+.mypage_sidebar{
+
+    &_lists{
+        width: 170px;
+        border: solid #ccc 1px;
+    }
+
+    &_list{
+        list-style: none;
+        border-top: solid #ccc 1px;
+        padding: 5px;
+    }
+}
