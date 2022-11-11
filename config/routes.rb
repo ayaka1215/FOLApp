@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   }
   resources :users
   get 'mypage', to: 'users#me'
+  get 'mypage/reservation', to: 'users#my_reservation'
 
   resources :events do
     resources :reservations
