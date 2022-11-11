@@ -3,8 +3,7 @@ class ReservationsController < ApplicationController
         # できていない
         reservation = Reservation.new(reservation_params)
         # paramsでuser_idが渡ってこない。hiddenで設定してもだめ
-        # reservation.user_id = current_user.id 
-        binding.pry
+        reservation.user_id = current_user.id 
         if reservation.save
             flash[:notice] = "「イベントを予約しました。」"
             redirect_to events_path
