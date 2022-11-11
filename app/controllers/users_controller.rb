@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
     # TODO：対象アクション要確認
-    before_action :is_admin, only: %i[index]
+    before_action :is_admin, only: %i[index show]
     def index
+        # ユーザー一覧
         @users = User.all
     end
 
@@ -11,7 +12,12 @@ class UsersController < ApplicationController
     end
 
     def me
+        # マイページ
         @user = User.find(current_user.id)
+    end
+
+    def my_reservation
+        @reservation = Reservation.find_by(user_id: current_user.id)
     end
 
     # def edit
