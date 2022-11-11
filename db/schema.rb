@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_10_225239) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_11_231509) do
   create_table "events", charset: "utf8mb4", force: :cascade do |t|
     t.string "title"
     t.date "event_date"
@@ -22,6 +22,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_10_225239) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "parts", charset: "utf8mb4", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "reservations", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "event_id", null: false
@@ -29,6 +35,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_10_225239) do
     t.datetime "updated_at", null: false
     t.index ["event_id"], name: "index_reservations_on_event_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
+  end
+
+  create_table "user_part_relations", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "part_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["part_id"], name: "index_user_part_relations_on_part_id"
+    t.index ["user_id"], name: "index_user_part_relations_on_user_id"
   end
 
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
@@ -47,4 +62,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_10_225239) do
 
   add_foreign_key "reservations", "events"
   add_foreign_key "reservations", "users"
+  add_foreign_key "user_part_relations", "parts"
+  add_foreign_key "user_part_relations", "users"
 end
