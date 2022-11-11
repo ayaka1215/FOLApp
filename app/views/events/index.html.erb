@@ -10,6 +10,7 @@
               <div class="alert alert-danger"><%= flash[:notice] %></div>
             <% end %>
             <div class="container">
+            <%= current_user.email %>
             <h2 class= "py-4 text-dark">イベント一覧</h2>
               <div class="row row-cols-1 row-cols-md-3">
                 <% @events.each do |event| %>

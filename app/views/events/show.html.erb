@@ -7,7 +7,7 @@
   </div>
 </div>
 
-<div class="card">
+< class="card">
   <div class="card-header">
     <h4><%= @event.title %></h4>
   </div>
@@ -15,7 +15,9 @@
     <p class="card-text"><%= simple_format(@event.content) %></p>
   </div>
 
-  <%# 仮置き。 %>
-  <%= link_to 'このイベントに参加する', events_path, class: 'btn btn-outline-dark' %>
-  <%= link_to '一覧へ戻る', events_path, class: 'btn btn-outline-dark' %>
+  <%= form_for [@event, @event.reservations.new] do |f| %>
+    <% f.hidden_field :event_id, value: @event.id %>
+    <%= f.submit 'このイベントに参加する', class: 'btn btn-outline-dark' %>
+    <%= link_to '一覧へ戻る', events_path, class: 'btn btn-outline-dark' %>
+  <% end %>
 </div>

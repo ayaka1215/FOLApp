@@ -6,9 +6,13 @@ Rails.application.routes.draw do
   end
 
   devise_for :users, :controllers => {
-    sessions: 'users/sessions'
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
   }
   resources :users
   get 'mypage', to: 'users#me'
-  resources :events
+
+  resources :events do
+    resources :reservations
+  end
 end
