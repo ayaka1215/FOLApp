@@ -9,6 +9,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   def new
+    unless current_user.admin
+      redirect_to event_path
+    end
     super
   end
 
