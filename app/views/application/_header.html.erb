@@ -9,13 +9,14 @@
                 <li class="nav-item">
                     <%= link_to "マイページ", mypage_path, class: "nav-link text-white"  %>
                 </li>
+                <% if current_user.admin %>
                   <li class="nav-item">
                     <%= link_to "新規投稿", new_event_path, class: "nav-link text-white"  %>
                   </li>
                   <li class="nav-item">
-                    <%# TODO：ユーザー管理ページ作成後、リンク先入れ替え %>
-                    <%= link_to "ユーザー管理", new_event_path, class: "nav-link text-white"  %>
+                    <%= link_to "ユーザー一覧", users_path, class: "nav-link text-white"  %>
                   </li>
+                <% end %>
                   <li class="nav-item">
                   <%# TODO：申込履歴ページ作成後、リンク先入れ替え %>
                     <%= link_to "申込履歴", new_event_path, class: "nav-link text-white"  %>

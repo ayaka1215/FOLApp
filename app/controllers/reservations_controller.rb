@@ -1,4 +1,7 @@
 class ReservationsController < ApplicationController
+    def index
+        @reservation = Reservation.all
+    end
     def create
         # できていない
         reservation = Reservation.new(reservation_params)
