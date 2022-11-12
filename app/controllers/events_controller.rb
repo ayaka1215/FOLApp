@@ -3,7 +3,7 @@ class EventsController < ApplicationController
     before_action :is_admin, only: %i[new create edit update destroy]
 
     def index
-        @events = Event.all
+        @events = Event.all.order(created_at: "DESC")
     end
 
     def new
@@ -16,7 +16,7 @@ class EventsController < ApplicationController
             flash[:notice] = "「#{event.title}」のイベントを作成しました。"
             redirect_to events_path
         else
-            redirect_to :back, flash: {
+            redirect_to new_event_path, flash: {
                 event: event,
                 erro_messages: event.errors.full_messages
             }
@@ -48,8 +48,7 @@ class EventsController < ApplicationController
     private
 
     def event_params
-        # TODO：FORM整えたらカラム増やす
-        params.require(:event).permit(:title, :content)
+        params.require(:event).permit(:title, :content, :event_date, :event_start_time, :event_end_time, :place)
     end
 
     def set_target_event
