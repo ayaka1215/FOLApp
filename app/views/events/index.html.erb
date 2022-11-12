@@ -1,14 +1,11 @@
     <main role="main">
-        <section class="jumbotron text-center">
+        <section class="event-contents text-center">
             <div class="container">
-                <h1 class="jumbotron-heading">Field of Music</h1>
+                <h1 class="jumbotron-heading event_contents">Field of Music</h1>
                 <p class="lead text-muted">“大好き”を詰め込んだ音楽コミュニティ。</p>
             </div>
         </section>
         <div class="my-3 bg-light">
-            <% if flash[:notice] %>
-              <div class="alert alert-danger"><%= flash[:notice] %></div>
-            <% end %>
             <div class="container">
             <%= current_user.email %>
             <h2 class= "py-4 text-dark">イベント一覧</h2>
@@ -29,7 +26,7 @@
                               <% end %>
                             </div>
                             <%= current_user.admin  %>
-                            <small class="text-muted"><%= event.created_at %></small>
+                            <small class="text-muted"><%= event.created_at.to_s(:datetime_jp) %></small>
                         </div>
                       </div>
                     </div>
