@@ -5,7 +5,7 @@
             <li class="mypage_sidebar_list">予約一覧</li>
             <li class="mypage_sidebar_list">プロフィール編集</li>
             <li class="mypage_sidebar_list">パスワード編集</li>
-            <li class="mypage_sidebar_list">ログアウト</li>
+            <li class="mypage_sidebar_list"><%= button_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
         </ul>
     </div>
     <div class="mypage_contents_main">
