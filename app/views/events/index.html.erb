@@ -13,6 +13,7 @@
                 <% @events.each do |event| %>
                   <div class="col mb-4">
                     <div class="card mb-4 shadow-sm" width="20rem;">
+                      <%= image_tag event.image.url if event.image? %>
                       <img src="/assets/field_of_Session_Vol.11.jpg" class="card-img-top px-3 mb-3 mt-3" alt="イベントタイトルが入る">
                       <div class="card-body">
                         <h5 class="card-title"><%= event.title %></h5>

@@ -34,7 +34,7 @@ class EventsController < ApplicationController
             flash[:notice] = "「#{event.title}」のイベントを編集しました。"
             redirect_to @event
         else
-            redirect_to @event, flash: {
+            redirect_to edit_event_path, flash: {
                 event: @event,
                 alert: @event.errors.full_messages
             }
@@ -49,7 +49,7 @@ class EventsController < ApplicationController
     private
 
     def event_params
-        params.require(:event).permit(:title, :content, :event_date, :event_start_time, :event_end_time, :place)
+        params.require(:event).permit(:title, :content, :event_date, :event_start_time, :event_end_time, :place, :image, :remove_image)
     end
 
     def set_target_event

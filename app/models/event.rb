@@ -9,6 +9,7 @@ class Event < ApplicationRecord
     validates :place, presence: true, length: { maximum: 50 }
     validate :end_check
     validate :start_check
+    mount_uploader :image, ImageUploader
 
     def end_check
       errors.add(:event_end_time, "は開始時刻より遅い時間を選択してください") if self.event_start_time > self.event_end_time
