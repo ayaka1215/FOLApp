@@ -31,11 +31,12 @@ class EventsController < ApplicationController
 
     def update
         if @event.update(event_params)
+            flash[:notice] = "「#{event.title}」のイベントを編集しました。"
             redirect_to @event
         else
-            redirect_to back, flash: {
+            redirect_to @event, flash: {
                 event: @event,
-                error_messages: @event.errors.full_messages
+                alert: @event.errors.full_messages
             }
         end
     end
