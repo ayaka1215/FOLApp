@@ -8,7 +8,7 @@
             <div class="mypage_top-profile"><%= @user.email%></div>
         </div>
         <ul class="mypage_menu d-flex justify-content-between">
-            <li class="mypage_sidebar_list">予約一覧</li>
+            <li class="mypage_sidebar_list"><%= link_to '予約一覧', reservations_path %></li>
             <li class="mypage_sidebar_list">プロフィール編集</li>
             <li class="mypage_sidebar_list">パスワード編集</li>
             <li class="mypage_sidebar_list"><%= button_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
