@@ -10,7 +10,7 @@
             <%= current_user.email %>
             <h2 class= "py-4 text-dark">イベント一覧</h2>
               <div class="row row-cols-1 row-cols-md-3">
-                <% @events.each do |event| %>
+                  <% @events.each do |event| %> 
                   <div class="col mb-4">
                     <div class="card mb-4 shadow-sm" width="20rem;">
                         <%= image_tag event.image.url, class:"card-img-top px-3 mb-3 mt-3",alt="event_image" if event.image? %>
@@ -25,8 +25,6 @@
                                 <%= link_to '編集', edit_event_path(event), class: "btn btn-sm btn-outline-secondary" %>
                                 <%= button_to '削除', event, class: "btn btn-sm btn-outline-secondary", method: :delete %>
                               <% end %>
-                            </div>
-                            <%= current_user.admin  %>
                             <small class="text-muted"><%= event.created_at.to_s(:datetime_jp) %></small>
                         </div>
                       </div>
