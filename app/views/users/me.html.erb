@@ -1,16 +1,18 @@
-<h2>マイページ</h2>
-<div class="contents mypage_contents d-flex">
-    <div class="mypage_contents_sidebar">
-        <ul class="mypage_sidebar_lists text-center">
+<div class="container">
+    <h2>マイページ</h2>
+    <div class="contents mypage_contents">
+        <div class="mypage_top text-center">
+            <div class="mypage_top-image"><%= image_tag "user_default.jpg", class:"", alt:"default_image" %></div>
+            <div class="mypage_top-name"><%= @user.email%></div>
+            <div class="mypage_top-parts"><%= @user.email%></div>
+            <div class="mypage_top-profile"><%= @user.email%></div>
+        </div>
+        <ul class="mypage_menu d-flex justify-content-between">
             <li class="mypage_sidebar_list">予約一覧</li>
             <li class="mypage_sidebar_list">プロフィール編集</li>
             <li class="mypage_sidebar_list">パスワード編集</li>
             <li class="mypage_sidebar_list"><%= button_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
         </ul>
-    </div>
-    <div class="mypage_contents_main">
-    image
-    名前
-    メールアドレス：<%= @user.email %>
+        </div>
     </div>
 </div>

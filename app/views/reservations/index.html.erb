@@ -1,7 +1,6 @@
 <div class="container">
     <h2>予約一覧</h2>
     <% if @reservations %>
-    
         <div class="reservation-contents">
             <div class="reservation-event_title">イベントタイトル：<%= @reservations.event.title %></div>
             <div class="reservation-event_details">
@@ -11,7 +10,6 @@
                 <p><%= button_to 'このイベントをキャンセルする', @reservations, class: "btn btn-sm btn-outline-secondary cancel-btn", method: :delete %></p>
             </div>
         </div>
-
     <% else %>
         <div class="alert alert-secondary text-center" role="alert">
             現在予約中のイベントはありません。

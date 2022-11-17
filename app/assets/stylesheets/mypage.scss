@@ -1,13 +1,53 @@
-.mypage_sidebar{
+.container{
+    margin-top: 30px;
+}
 
-    &_lists{
-        width: 170px;
-        border: solid #ccc 1px;
+li{
+    list-style: none;
+}
+
+
+.mypage_top{
+    &-image{
+        margin: 0 auto;
+        & img{
+            width: 190px;
+            border-radius: 50%;
+        }
     }
 
-    &_list{
-        list-style: none;
-        border-top: solid #ccc 1px;
-        padding: 5px;
+    &-name{
+        font-weight: 700;
+        font-size: 20px;
+    }
+
+    &-profile{
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 1px solid rgba(0, 0, 0, 0.125);
+        border-radius: 0.25rem;
     }
 }
+
+
+.mypage_sidebar_list{
+    padding: 50px;
+    background-color: #ccc;
+}
+
+
+
+
+// .mypage_sidebar{
+//     &_lists{
+//         width: 170px;
+//         border: solid #ccc 1px;
+//     }
+
+//     &_list{
+//         list-style: none;
+//         border-top: solid #ccc 1px;
+//         padding: 5px;
+//     }
+// }
