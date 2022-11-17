@@ -15,9 +15,11 @@
     <p class="card-text"><%= simple_format(@event.content) %></p>
   </div>
 
-  <%= form_for [@event, @event.reservations.new] do |f| %>
-    <% f.hidden_field :event_id, value: @event.id %>
-    <%= f.submit 'このイベントに参加する', class: 'btn btn-outline-dark' %>
-    <%= link_to '一覧へ戻る', events_path, class: 'btn btn-outline-dark' %>
-  <% end %>
+<%# TODO：なぜか全部エラー %>
+  <%#= form_for [@event, @event.reservations.new] do |f| %>
+    <%# f.hidden_field :event_id, value: @event.id %>
+    <%#= f.submit 'このイベントに参加する', class: 'btn btn-outline-dark' %>
+    <%#= link_to '一覧へ戻る', events_path, class: 'btn btn-outline-dark' %>
+  <%# end %>
+  
 </div>
