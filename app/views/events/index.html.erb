@@ -1,37 +1,40 @@
-    <main role="main">
-        <section class="event-contents text-center">
-            <div class="container">
-                <h1 class="jumbotron-heading event_contents">Field of Music</h1>
-                <p class="lead text-muted">“大好き”を詰め込んだ音楽コミュニティ。</p>
-            </div>
-        </section>
-        <div class="my-3 bg-light">
-            <div class="container">
-            <%= current_user.email %>
-            <h2 class= "py-4 text-dark">イベント一覧</h2>
-              <div class="row row-cols-1 row-cols-md-3">
-                  <% @events.each do |event| %> 
-                  <div class="col mb-4">
-                    <div class="card mb-4 shadow-sm" width="20rem;">
-                        <%= image_tag event.image.url, class:"card-img-top px-3 mb-3 mt-3",alt="event_image" if event.image? %>
-                      <img src="/assets/field_of_Session_Vol.11.jpg" class="card-img-top px-3 mb-3 mt-3" alt="イベントタイトルが入る">
-                      <div class="card-body">
-                        <h5 class="card-title"><%= event.title %></h5>
-                        <p class="card-text"><%= event.content %></p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                              <%= link_to '詳細', event, class: "btn btn-sm btn-outline-secondary" %>
-                              <% if current_user.admin %>
-                                <%= link_to '編集', edit_event_path(event), class: "btn btn-sm btn-outline-secondary" %>
-                                <%= button_to '削除', event, class: "btn btn-sm btn-outline-secondary", method: :delete %>
-                              <% end %>
-                            <small class="text-muted"><%= event.created_at.to_s(:datetime_jp) %></small>
-                        </div>
-                      </div>
-                    </div>
+<main role="main">
+  <section class="event-contents text-center">
+    <div class="container">
+      <h1 class="jumbotron-heading event_contents">Field of Music</h1>
+      <p class="lead text-muted">“大好き”を詰め込んだ音楽コミュニティ。</p>
+    </div>
+  </section>
+
+  <div class="my-3 bg-light">
+    <div class="container">
+      <h2 class= "py-4 text-dark">イベント一覧</h2>
+      <div class="row">
+        <% @events.each do |event| %> 
+          <div class="col-lg-4">
+            <div class="card mb-4 shadow-sm" width="20rem;">
+              <% if event.image.file %>
+                <%= image_tag event.image.url, class:"card-img-top px-3 mb-3 mt-3", alt:"event_image" %>
+              <% else %>
+                <%= image_tag "event_default.jpg", class:"card-img-top px-3 mb-3 mt-3", alt:"default_image" %>
+              <% end %>
+              <div class="card-body">
+                <h3 class="card-title"><%= event.title %></h3>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group mt-3">
+                    <%= link_to '詳細', event, class: "btn btn-sm btn-outline-secondary" %>
+                    <% if current_user.admin %>
+                      <%= link_to '編集', edit_event_path(event), class: "btn btn-sm btn-outline-secondary" %>
+                      <%= button_to '削除', event, class: "btn btn-sm btn-outline-secondary", method: :delete %>
+                    <% end %>
                   </div>
-                <% end %>
+                    <small class="text-muted"><%= event.created_at.to_s(:datetime_jp) %></small>
+                </div>
               </div>
             </div>
-        </div>
-    </main>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</main>

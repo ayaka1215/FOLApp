@@ -16,10 +16,6 @@ class UsersController < ApplicationController
         @user = User.find(current_user.id)
     end
 
-    def my_reservation
-        @reservation = Reservation.find_by(user_id: current_user.id)
-    end
-
     # def edit
         
     # end

@@ -1,7 +1,8 @@
 class ReservationsController < ApplicationController
     def index
-        @reservation = Reservation.all
+        @reservations = Reservation.find_by(user_id: current_user.id)
     end
+
     def create
         # できていない
         reservation = Reservation.new(reservation_params)
