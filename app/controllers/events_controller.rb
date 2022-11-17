@@ -12,6 +12,7 @@ class EventsController < ApplicationController
 
     def create
         event = Event.new(event_params)
+        return
         if event.save
             flash[:notice] = "「#{event.title}」のイベントを作成しました。"
             redirect_to events_path

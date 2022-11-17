@@ -9,4 +9,6 @@ class User < ApplicationRecord
   # partsテーブル関連
   has_many :user_part_relations, dependent: :delete_all
   has_many :parts, through: :user_part_relations
+
+  mount_uploader :image, ImageUploader
 end

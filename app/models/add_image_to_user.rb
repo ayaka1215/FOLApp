@@ -1,0 +1,2 @@
+class AddImageToUser < ApplicationRecord
+end
