@@ -1,15 +1,17 @@
 <div class="container">
     <h2>予約一覧</h2>
     <% if @reservations %>
-        <div class="reservation-box">
-            <div class="reservation-event_title"><%= @reservations.event.title %></div>
-            <div class="reservation-event_contents">
-                <p class="reservation-event_datetime"><%= @reservations.event.event_date %>　<%= @reservations.event.event_start_time %></p>
-                <p class="reservation-event_place"><%= @reservations.event.place %></p>
-            </div>
-            <div class="cancel">
+    
+        <div class="reservation-contents">
+            <div class="reservation-event_title">イベントタイトル：<%= @reservations.event.title %></div>
+            <div class="reservation-event_details">
+                <p class="reservation-event_date">日付：<%= @reservations.event.event_date %></p>
+                <p class="reservation-event_datetime">時間：<%= @reservations.event.event_start_time %><%= @reservations.event.event_end_time %></p>
+                <p class="reservation-event_place">場所：<%= @reservations.event.place %></p>
+                <p><%= button_to 'このイベントをキャンセルする', @reservations, class: "btn btn-sm btn-outline-secondary cancel-btn", method: :delete %></p>
             </div>
         </div>
+
     <% else %>
         <div class="alert alert-secondary text-center" role="alert">
             現在予約中のイベントはありません。

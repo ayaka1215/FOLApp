@@ -1,0 +1,29 @@
+.container{
+    margin-top: 30px;
+}
+
+.reservation-contents{
+    border-bottom: 1px solid #ccc;
+    padding: 25px 50px;
+}
+
+
+.reservation-event_details{
+    margin-left: 10px;
+
+    & p{
+    margin-bottom: 0.5rem;
+}
+
+}
+
+.reservation-event_title{
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.cancel-btn{
+    margin-top: 10px;
+    padding: 10px 20px;
+}
