@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
     # TODO：対象アクション要確認
+    before_action :set_target_user, only: %i[show edit update]
     before_action :is_admin, only: %i[index show]
     def index
         # ユーザー一覧
@@ -16,15 +17,33 @@ class UsersController < ApplicationController
         @user = User.find(current_user.id)
     end
 
-    # def edit
-        
-    # end
+    def edit
+    end
 
-    # def destroy
-        
-    # end
+    def update
+        binding.pry
+        if @user.update(user_params)
+            flash[:notice] = "プロフィールを修正しました。"
+            binding.pry
+            redirect_to mypage_path
+        else
+            binding.pry
+            redirect_to mypage_path, flash: {
+                event: @user,
+                alert: @user.errors.full_messages
+            }
+        end
+    end
 
     private
+
+    def user_params
+        params.require(:user).permit(:name, :profile, tag_ids: [])
+    end
+
+    def set_target_user
+        @user = User.find(current_user.id)
+    end
     
     def is_admin
         unless current_user.admin

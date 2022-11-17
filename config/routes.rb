@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   }
   resources :users
   get 'mypage', to: 'users#me'
+  get 'mypage/profile_edit', to: 'users#edit'
 
   resources :events
   resources :reservations
