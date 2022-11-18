@@ -31,35 +31,9 @@
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
-  <div class="field">
-    <span>Part</span>
-    <%= f.collection_check_boxes(:part_ids, Part.all, :id, :name) do |part| %>
-      <div class="btn">
-        <%= part.label class: 'btn btn-secondary' do %>
-          <%= part.check_box class: 'btn-check' %>
-          <%= part.text %>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autocomplete: "ニックネーム" %>
-  </div>
-
-    <div class="field">
-    <%= f.label :profile %><br />
-    <%= f.text_area :profile, autocomplete: "プロフィール文" %>
-  </div>
-
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
 <% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
