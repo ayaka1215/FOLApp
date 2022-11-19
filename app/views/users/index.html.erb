@@ -9,7 +9,6 @@
         <th>担当パート</th>
         <th>作成日時</th>
         <th></th>
-        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -18,9 +17,12 @@
           <td><%= user.id %></td>
           <td><%= user.name %></td>
           <td><%= user.email %></td>
-          <td>ドラム</td>
+          <td>
+            <% user.parts.each do |part|%>
+              <%= part.name %>
+            <% end %>
+          </td>
           <td><%= user.created_at.to_s(:datetime_jp) %></td>
-          <td><%= link_to '詳細', user, class: 'btn btn-outline-dark' %></td>
           <td><%= link_to '削除', user, class: 'btn btn-outline-dark', method: :delete %></td>
         </tr>
       <% end %>
