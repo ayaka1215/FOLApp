@@ -8,6 +8,13 @@ li{
 
 
 .mypage_top{
+
+    margin-bottom: 30px;
+
+    & > div{
+        margin-bottom: 10px;
+    }
+
     &-image{
         margin: 0 auto;
         & img{
@@ -21,20 +28,47 @@ li{
         font-size: 20px;
     }
 
+    .part-item{
+        color: #fff;
+        background-color: #4F3020;
+        padding: 5px 10px;
+        margin: 0 5px;
+        border-radius: 1rem;
+    }
+
     &-profile{
         word-wrap: break-word;
         background-color: #fff;
         background-clip: border-box;
-        border: 1px solid rgba(0, 0, 0, 0.125);
-        border-radius: 0.25rem;
+        border: 1px solid #ccc;
+        border-radius: 0.5rem;
+        width: 50%;
+        padding: 20px 30px;
+        margin: 0 auto;
     }
 }
 
 
-.mypage_sidebar_list{
-    padding: 50px;
-    background-color: #ccc;
+.mypage_menu{
+    width: 95%;
+
+    &_list{
+        background-color: #ccc;
+        width: 230px;
+        text-align: center;
+        padding: 10px 0;
+    
+        a{
+            text-decoration: none;
+            color: #222;
+    
+            &:hover{
+                color: #fff;
+            }
+        }
+    }
 }
+
 
 
 
