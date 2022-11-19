@@ -1,15 +1,10 @@
 class UsersController < ApplicationController
     # TODO：対象アクション要確認
-    before_action :set_target_user, only: %i[show edit update]
-    before_action :is_admin, only: %i[index show]
+    before_action :set_target_user, only: %i[edit update]
+    before_action :is_admin, only: %i[index]
     def index
         # ユーザー一覧
         @users = User.all
-    end
-
-    def show
-        # ユーザー詳細
-        @user = User.find(params[:id])
     end
 
     def me
