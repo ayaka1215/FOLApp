@@ -4,16 +4,12 @@ class ReservationsController < ApplicationController
     end
 
     def create
-        # できていない
         reservation = Reservation.new(reservation_params)
-        # paramsでuser_idが渡ってこない。hiddenで設定してもだめ
-        reservation.user_id = current_user.id 
-        binding.pry
         if reservation.save
-            flash[:notice] = "「イベントを予約しました。」"
+            flash[:notice] = "イベント#{reservation.event.title}を予約しました。"
             redirect_to events_path
         else
-            flash[:notice] = reservation.errors.full_messages
+            flash[:alert] = reservation.errors.full_messages
             redirect_to events_path
         end
     end
