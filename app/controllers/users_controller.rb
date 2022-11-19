@@ -35,7 +35,7 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:name, :profile, tag_ids: [])
+        params.require(:user).permit(:name, :profile, part_ids: [])
     end
 
     def set_target_user
