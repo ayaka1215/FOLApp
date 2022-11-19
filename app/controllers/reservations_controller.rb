@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
     def index
-        @reservations = Reservation.find_by(user_id: current_user.id)
+        @reservations = Reservation.where(user_id: current_user.id)
     end
 
     def create
@@ -12,6 +12,17 @@ class ReservationsController < ApplicationController
             flash[:alert] = reservation.errors.full_messages
             redirect_to events_path
         end
+    end
+
+    def destroy
+        reservation = Reservation.find(params[:id])
+       if reservation.destroy
+        flash[:notice] = "イベント#{reservation.event.title}の予約を取り消しました。"
+        redirect_to event_path        
+       else
+        flash[:alert] = reservation.errors.full_messages
+        redirect_to events_path
+       end        
     end
 
     private
