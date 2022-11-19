@@ -1,23 +1,25 @@
-<div class="d-flex align-items-center mt-4 mb-4">
-  <div class="ml-auto events__linkBox">
-      <%= link_to '一覧', events_path, class: 'btn btn-outline-dark' %>
-      <% if current_user.admin %>
-        <%= link_to '編集', edit_event_path(@event), class: 'btn btn-outline-dark' %>
-      <% end %>
+<div class="container">
+  <div class="d-flex mt-4 mb-4">
+    <div class="ml-auto events__linkBox">
+        <%= link_to '一覧', events_path, class: 'btn btn-outline-dark' %>
+        <% if current_user.admin %>
+          <%= link_to '編集', edit_event_path(@event), class: 'btn btn-outline-dark' %>
+        <% end %>
+    </div>
   </div>
-</div>
-  <div class="card-header">
-    <h4><%= @event.title %></h4>
-  </div>
-  <div class="card-body">
-    <p class="card-text"><%= simple_format(@event.content) %></p>
-  </div>
+    <div class="card-header">
+      <h4><%= @event.title %></h4>
+    </div>
+    <div class="card-body">
+      <p class="card-text"><%= simple_format(@event.content) %></p>
+    </div>
 
-<%# TODO：なぜか全部エラー %>
-  <%#= form_for [@event, @event.reservations.new] do |f| %>
-    <%# f.hidden_field :event_id, value: @event.id %>
-    <%#= f.submit 'このイベントに参加する', class: 'btn btn-outline-dark' %>
-    <%#= link_to '一覧へ戻る', events_path, class: 'btn btn-outline-dark' %>
-  <%# end %>
-  
+    <%= form_for @reservation do |f| %>
+      <%= @reservation.event_id %>
+      <%= f.hidden_field :event_id %>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= f.submit 'このイベントに参加する', class: 'btn btn-outline-dark' %>
+    <% end %>
+    <%= link_to '一覧へ戻る', events_path, class: 'btn btn-outline-dark' %>
+  </div>
 </div>
