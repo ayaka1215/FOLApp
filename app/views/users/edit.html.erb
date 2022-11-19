@@ -1,7 +1,8 @@
-<h2>edit</h2>
+<div class="container">
+    <h2>プロフィール編集</h2>
     <%= form_for @user do |f| %>
         <div class="field">
-        <span>Part</span>
+        <span>担当パート</span>
         <%= f.collection_check_boxes(:part_ids, Part.all, :id, :name) do |part| %>
         <div class="btn">
             <%= part.label class: 'btn btn-secondary' do %>
@@ -23,3 +24,4 @@
     </div>
         <%= f.submit '保存', class: 'btn btn-primary' %>
     <% end %>
+</div>
