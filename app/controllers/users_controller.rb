@@ -21,15 +21,12 @@ class UsersController < ApplicationController
     end
 
     def update
-        binding.pry
         if @user.update(user_params)
             flash[:notice] = "プロフィールを修正しました。"
-            binding.pry
             redirect_to mypage_path
         else
-            binding.pry
             redirect_to mypage_path, flash: {
-                event: @user,
+                user: @user,
                 alert: @user.errors.full_messages
             }
         end
