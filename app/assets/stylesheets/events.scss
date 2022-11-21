@@ -1,5 +1,15 @@
-.event-contents{
+.event-main{
     background-color: #DDE7E6;
     padding: 4rem 1rem;
     border-radius: 0.3rem;
+}
+
+.event-contents{
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 50px 0;
+
+    h2{
+        margin-bottom: 20px;
+    }
 }

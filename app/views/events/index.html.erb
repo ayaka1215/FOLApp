@@ -1,14 +1,12 @@
 <main role="main">
-  <section class="event-contents text-center">
-    <div class="container">
-      <h1 class="jumbotron-heading event_contents">Field of Music</h1>
-      <p class="lead text-muted">“大好き”を詰め込んだ音楽コミュニティ。</p>
-    </div>
+  <section class="event-main text-center">
+    <h1 class="jumbotron-heading event_contents">Field of Music</h1>
+    <p class="lead text-muted">“大好き”を詰め込んだ音楽コミュニティ。</p>
   </section>
 
   <div class="bg-light">
-    <div class="container">
-      <h2 class= "py-4 text-dark">イベント一覧</h2>
+    <div class="event-contents">
+      <h2 class= "text-dark">イベント一覧</h2>
       <div class="row">
         <% @events.each do |event| %> 
           <div class="col-lg-4">
