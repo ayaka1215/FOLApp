@@ -7,31 +7,38 @@
         <% end %>
     </div>
   </div>
-  <div class="event_detail-top-img">
+  <div class="event_detail">
     <% if @event.image.file %>
       <%= image_tag @event.image.url, alt:"event_image" %>
     <% else %>
       <%= image_tag "event_default.jpg", alt:"default_image" %>
     <% end %>
-  </div>
-  <div class="d-md-flex event_detail-top-info">
-    <div class="event_detail-top-cont">
-      <p class="event-title"><%= @event.title %></p>
-      <p><%= @event.date.to_fs(:date_stamp) %>　<%= @event.start_time.to_s(:time_stamp) %> - <%= @event.end_time.to_s(:time_stamp) %> @<%= @event.place %></p>
+    <div class="d-md-flex event_detail-top">
+      <div class="event_detail-top-cont">
+        <p class="event-title"><%= @event.title %></p>
+        <p><%= @event.date.to_fs(:date_stamp) %>　<%= @event.start_time.to_s(:time_stamp) %> - <%= @event.end_time.to_s(:time_stamp) %> @<%= @event.place %></p>
+      </div>
+      <div class="event_detail-top-rsv ml-auto">
+        <%= form_for @reservation do |f| %>
+          <%= f.hidden_field :event_id %>
+          <%= f.hidden_field :user_id, :value => current_user.id %>
+          <%= f.submit 'このイベントに参加する', class: 'btn btn-outline-dark btn-rsv' %>
+        <% end %>
+      </div>
     </div>
-    <div class="event_reservation-box ml-auto">
+
+    <div class="event_detail-main">
+      <p class="event_detail-main-title">イベント概要</p>
+      <div class="event_detail-main-text"><%= simple_format(@event.content) %></div>
+    </div>
+
+    <div class="event_detail-foot">
       <%= form_for @reservation do |f| %>
         <%= f.hidden_field :event_id %>
         <%= f.hidden_field :user_id, :value => current_user.id %>
         <%= f.submit 'このイベントに参加する', class: 'btn btn-outline-dark btn-rsv' %>
       <% end %>
+      <%= link_to '一覧へ戻る', events_path, class: 'btn btn-outline-dark' %>  
     </div>
   </div>
-
-  <div class="event_detail-main">
-    <p class="contents-title">イベント概要</p>
-    <p class="contents-text"><%= simple_format(@event.content) %></p>
-  </div>
-
-  <%= link_to '一覧へ戻る', events_path, class: 'btn btn-outline-dark' %>  
 </div>
