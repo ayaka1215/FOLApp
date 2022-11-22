@@ -19,7 +19,7 @@
               <div class="card-body">
                 <p class="card-title"><%= event.title %></p>
                 <%# 日時のフォーマットができない %>
-                <p>日時：<%= event.date.strftime('%Y年%m月%d日') %><br>
+                <p>日時：<%= event.date.to_fs(:date_stamp) %><br>
                 開始時刻：<%= event.start_time.to_s(:time_stamp) %><br>
                 終了時刻：<%= event.end_time.to_s(:time_stamp) %><br>
                 場所：<%= event.place %></p><br>
@@ -31,7 +31,7 @@
                       <%= button_to '削除', event, class: "btn btn-sm btn-outline-secondary", method: :delete %>
                     <% end %>
                   </div>
-                    <small class="text-muted"><%= event.created_at.to_s(:datetime_stamp) %></small>
+                    <small class="text-muted"><%= event.created_at.to_s(:date_stamp) %></small>
                 </div>
               </div>
             </div>

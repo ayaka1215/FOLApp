@@ -5,8 +5,8 @@
             <div class="reservation-contents">
                 <div class="reservation-event_title">イベントタイトル：<%= reservation.event.title %></div>
                 <div class="reservation-event_details">
-                    <p class="reservation-date">日付：<%= reservation.event.date %></p>
-                    <p class="reservation-datetime">時間：<%= reservation.event.start_time %><%= reservation.event.end_time %></p>
+                    <p class="reservation-date">日付：<%= reservation.event.date.to_fs(:date_stamp) %></p>
+                    <p class="reservation-datetime">時間：<%= reservation.event.start_time.to_s(:time_stamp) %> - <%= reservation.event.end_time.to_s(:time_stamp) %></p>
                     <p class="reservation-event_place">場所：<%= reservation.event.place %></p>
                     <p><%= button_to 'このイベントをキャンセルする', reservation, class: "btn btn-sm btn-outline-secondary cancel-btn", method: :delete %></p>
                 </div>
