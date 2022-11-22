@@ -1,5 +1,18 @@
-.login-box{
+.login-box, .sign_up-box{
     margin: 0 auto;
     max-width: 500px;
     margin-top: 50px;
+}
+
+.form-group{
+    margin-bottom: 1.2rem;
+}
+
+.actions{
+    margin-top: 1.5rem;
+
+    input[type="submit"]{
+        width: 100%;
+        padding: 0.5rem 0;
+    }
 }

@@ -1,6 +1,6 @@
 <div class="login-container">
   <div class="login-box">
-    <div class="login-title text-center"><h2>Log in</h2></div>  
+    <div class="login-title text-center"><h2>ログイン</h2></div>  
     <div class="flash_message text-center">
     <% if flash[:notice] %>
         <p class="alert alert-success text_center"><%= notice %></p>
@@ -27,8 +27,8 @@
           </div>
         <% end %>
 
-        <div class="actions">
-          <%= f.submit "Log in" %>
+        <div class="actions form-group">
+          <%= f.submit "ログインする", class: "btn btn-primary"  %>
         </div>
       <% end %>
 
