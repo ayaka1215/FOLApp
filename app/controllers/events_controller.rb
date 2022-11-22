@@ -16,7 +16,6 @@ class EventsController < ApplicationController
             flash[:notice] = "「#{event.title}」のイベントを作成しました。"
             redirect_to events_path
         else
-            binding.pry
             redirect_to new_event_path, flash: {
                 event: event,
                 erro_messages: event.errors.full_messages
