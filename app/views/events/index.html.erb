@@ -18,7 +18,11 @@
               <% end %>
               <div class="card-body">
                 <p class="card-title"><%= event.title %></p>
-                <p><%= event.date %><%= event.start_time %>〜<%= event.end_time %>@<%= event.place %></p>
+                <%# 日時のフォーマットができない %>
+                <p>日時：<%= event.date.strftime('%Y年%m月%d日') %><br>
+                開始時刻：<%= event.start_time.to_s(:time_stamp) %><br>
+                終了時刻：<%= event.end_time.to_s(:time_stamp) %><br>
+                場所：<%= event.place %></p><br>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group mt-3">
                     <%= link_to '詳細', event, class: "btn btn-sm btn-outline-secondary" %>
@@ -27,7 +31,7 @@
                       <%= button_to '削除', event, class: "btn btn-sm btn-outline-secondary", method: :delete %>
                     <% end %>
                   </div>
-                    <small class="text-muted"><%= event.created_at.to_s(:datetime_jp) %></small>
+                    <small class="text-muted"><%= event.created_at.to_s(:datetime_stamp) %></small>
                 </div>
               </div>
             </div>
