@@ -1,5 +1,5 @@
 .event-main{
-    background-color: #DDE7E6;
+    background-color: #FEE071;
     padding: 4rem 1rem;
     border-radius: 0.3rem;
 }
@@ -26,4 +26,30 @@
 
 .events__link-box{
     margin-bottom: 15px;
+}
+
+.event_detail-container{
+    margin-top: 50px;
+}
+
+.event_detail-top{
+    margin: 0 auto;
+    width: 70%;
+
+    img{
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .event-title{
+        font-size: 20px;
+        margin-bottom: 0.5rem;
+    }
+
+    p{
+        font-weight: bold;
+        font-size: 16px;
+    }
+
 }

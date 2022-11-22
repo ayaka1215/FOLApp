@@ -18,7 +18,6 @@
               <% end %>
               <div class="card-body">
                 <p class="card-title"><%= event.title %></p>
-                <%# 日時のフォーマットができない %>
                 <p>日時：<%= event.date.to_fs(:date_stamp) %><br>
                 開始時刻：<%= event.start_time.to_s(:time_stamp) %><br>
                 終了時刻：<%= event.end_time.to_s(:time_stamp) %><br>

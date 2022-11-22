@@ -7,13 +7,19 @@
         <% end %>
     </div>
   </div>
-    <div class="card-header">
-      <h4><%= @event.title %></h4>
+    <div class="event_detail-top">
+      <% if @event.image.file %>
+        <%= image_tag @event.image.url, alt:"event_image" %>
+      <% else %>
+        <%= image_tag "event_default.jpg", alt:"default_image" %>
+      <% end %>
+      <p class="event-title"><%= @event.title %></p>
+      <p><%= @event.date.to_fs(:date_stamp) %>　<%= @event.start_time.to_s(:time_stamp) %> - <%= @event.end_time.to_s(:time_stamp) %> @<%= @event.place %></p>
     </div>
-    <div class="card-body">
-      <p class="card-text">
+    <div class="event_detail-main">
       <p class="contents-title">イベント概要</p>
       <p class="contents-text"><%= simple_format(@event.content) %></p>
+    </div>
     </div>
 
     <%= form_for @reservation do |f| %>
