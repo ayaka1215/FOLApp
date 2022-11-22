@@ -18,7 +18,7 @@
               <% end %>
               <div class="card-body">
                 <p class="card-title"><%= event.title %></p>
-                <p><%= event.event_date %><%= event.event_start_time %>〜<%= event.event_end_time %>@<%= event.place %></p>
+                <p><%= event.date %><%= event.start_time %>〜<%= event.end_time %>@<%= event.place %></p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group mt-3">
                     <%= link_to '詳細', event, class: "btn btn-sm btn-outline-secondary" %>

@@ -51,7 +51,7 @@ class EventsController < ApplicationController
     private
 
     def event_params
-        params.require(:event).permit(:title, :content, :event_date, :event_start_time, :event_end_time, :place, :image, :remove_image)
+        params.require(:event).permit(:title, :content, :date, :start_time, :end_time, :place, :image, :remove_image)
     end
 
     def set_target_event
