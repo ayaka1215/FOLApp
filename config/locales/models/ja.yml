@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        email: メールアドレス
+        password: パスワード
+        Password_confirmation: パスワード（確認用）
+        remember_me: メールアドレス・パスワードを保存する
