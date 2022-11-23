@@ -1,7 +1,7 @@
 class Event < ApplicationRecord
     has_many :reservations
 
-    validates :title, presence: true, length: { maximum: 30 }
+    validates :title, presence: true, length: { maximum: 40 }
     validates :date, presence: true
     validates :start_time, presence: true
     validates :end_time, presence: true
