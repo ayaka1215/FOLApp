@@ -16,10 +16,9 @@ class EventsController < ApplicationController
             flash[:notice] = "「#{event.title}」のイベントを作成しました。"
             redirect_to events_path
         else
-            binding.pry
             redirect_to new_event_path, flash: {
                 event: event,
-                error_messages: event.errors.full_messages
+                alert: event.errors.full_messages
             }
         end
     end
@@ -29,6 +28,7 @@ class EventsController < ApplicationController
     end
 
     def edit
+        # TODO：flash入れる。エラーになっても編集内容が残るように
     end
 
     def update
