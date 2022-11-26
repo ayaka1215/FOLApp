@@ -24,6 +24,7 @@ class EventsController < ApplicationController
     end
 
     def show
+        @reserved = Reservation.where(event_id: @event.id)
         @reservation = Reservation.new(event_id: @event.id)
     end
 
