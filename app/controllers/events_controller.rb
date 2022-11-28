@@ -29,7 +29,7 @@ class EventsController < ApplicationController
     end
 
     def edit
-        # TODO：flash入れる。エラーになっても編集内容が残るように
+        @event.attributes = flash[:event] if flash[:event]
     end
 
     def update
