@@ -1,6 +1,6 @@
 <div class="container">
     <h2>予約一覧</h2>
-    <% if @reservations %>
+    <% if !@reservations.empty? %>
         <% @reservations.each do |reservation| %>
             <div class="reservation-contents">
                 <div class="reservation-event_title">イベントタイトル：<%= reservation.event.title %></div>
