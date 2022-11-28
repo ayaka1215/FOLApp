@@ -21,7 +21,7 @@
         <%= form_for @reservation do |f| %>
           <%= f.hidden_field :event_id %>
           <%= f.hidden_field :user_id, :value => current_user.id %>
-          <%= f.submit 'このイベントに参加する', class: 'btn btn-outline-dark btn-rsv' %>
+          <%= f.submit 'このイベントを予約する', class: 'btn btn-outline-dark btn-rsv' %>
         <% end %>
       </div>
     </div>
@@ -35,7 +35,7 @@
       <%= form_for @reservation do |f| %>
         <%= f.hidden_field :event_id %>
         <%= f.hidden_field :user_id, :value => current_user.id %>
-        <%= f.submit 'このイベントに参加する', class: 'btn btn-outline-dark btn-rsv' %>
+        <%= f.submit 'このイベントを予約する', class: 'btn btn-outline-dark btn-rsv' %>
       <% end %>
       <%= link_to 'イベント一覧へ戻る', events_path, class: 'btn btn-outline-dark btn-back' %>  
     </div>

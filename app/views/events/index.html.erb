@@ -18,10 +18,9 @@
               <% end %>
               <div class="card-body">
                 <p class="card-title"><%= event.title %></p>
-                <p>日時：<%= event.date.to_fs(:date_stamp) %><br>
-                開始時刻：<%= event.start_time.to_s(:time_stamp) %><br>
-                終了時刻：<%= event.end_time.to_s(:time_stamp) %><br>
-                場所：<%= event.place %></p><br>
+                <p><%= event.date.to_fs(:date_stamp) %><br>
+                <%= event.start_time.to_s(:time_stamp) %> - <%= event.end_time.to_s(:time_stamp) %><br>
+                @<%= event.place %></p><br>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group mt-3">
                     <%= link_to '詳細', event, class: "btn btn-sm btn-outline-secondary" %>
