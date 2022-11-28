@@ -12,6 +12,10 @@ class UsersController < ApplicationController
         @user = User.find(current_user.id)
     end
 
+    def show
+        @user = User.find(params[:id])
+    end
+
     def edit
     end
 
@@ -33,6 +37,7 @@ class UsersController < ApplicationController
         params.require(:user).permit(:name, :profile, :image, part_ids: [])
     end
 
+    # わかりにくいのでコメントor編集
     def set_target_user
         @user = User.find(current_user.id)
     end
