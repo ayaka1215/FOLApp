@@ -41,8 +41,7 @@
     </div>
 
     <p class="reserved-user_title">予約者一覧</p>
-    <%# 予約者がいる時といないときの表示の切り替え（できていない） %>
-    <% if @reserved %>
+    <% if !@reserved.empty? %>
       <table class="table reserved-user_body">
         <thead class="thead-dark">
           <tr>
