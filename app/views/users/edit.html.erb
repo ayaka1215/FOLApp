@@ -3,16 +3,21 @@
         <h2>プロフィール編集</h2>
         <%= form_for @user do |f| %>
             <div class="field">
-            <span>担当パート</span>
-            <%= f.collection_check_boxes(:part_ids, Part.all, :id, :name) do |part| %>
-            <div class="btn">
-                <%= part.label class: 'btn btn-secondary' do %>
-                <%= part.check_box class: 'btn-check' %>
-                <%= part.text %>
-                <% end %>
-            </div>
+                <span>担当パート</span>
+                <%= f.collection_check_boxes(:part_ids, Part.all, :id, :name) do |part| %>
+                <div class="btn">
+                    <%= part.label class: 'btn btn-secondary' do %>
+                    <%= part.check_box class: 'btn-check' %>
+                    <%= part.text %>
+                    <% end %>
+                </div>
             <% end %>
         </div>
+
+        <div class="field">
+  <%= f.label :image %>
+  <%= f.file_field :image %>
+</div>
 
         <div class="field">
             <%= f.label :name %><br />
