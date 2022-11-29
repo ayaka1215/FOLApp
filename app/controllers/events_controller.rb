@@ -3,7 +3,10 @@ class EventsController < ApplicationController
     before_action :is_admin, only: %i[new create edit update destroy]
 
     def index
-        @events = Event.all.order(created_at: "DESC")
+        # 現在
+        today = Date.today
+        @events = Event.where(date: today..).order(created_at: "DESC")
+        @past_events = Event.where(date: ..today).order(created_at: "DESC")
     end
 
     def new
