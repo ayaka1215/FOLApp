@@ -6,5 +6,12 @@ class Reservation < ApplicationRecord
     message: "予約済みです"
   }
 
-  # TOBE：予約期限バリデーション（イベント開始1週間前）
+  validate :reservation_deadline
+
+  def reservation_deadline
+    today = Date.today
+    if event.date.before? today - 3
+      errors.add(:date, "予約期限は3日前までです")
+    end
+  end
 end
