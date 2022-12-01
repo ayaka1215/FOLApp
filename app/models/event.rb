@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-    has_many :reservations
+    has_many :reservations, dependent: :destroy
 
     validates :title, presence: true, length: { maximum: 40 }
     validates :date, presence: true
