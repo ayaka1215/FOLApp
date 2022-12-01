@@ -7,67 +7,11 @@
   <div class="bg-light">
     <div class="event-contents">
       <h2 class= "text-dark">イベント一覧</h2>
-      <div class="row">
-        <% @events.each do |event| %> 
-          <div class="col-lg-4">
-            <div class="card mb-4 shadow-sm" width="20rem;">
-              <% if event.image.file %>
-                <%= image_tag event.image.url, class:"card-img-top", alt:"event_image" %>
-              <% else %>
-                <%= image_tag "event_default.jpg", class:"card-img-top", alt:"default_image" %>
-              <% end %>
-              <div class="card-body">
-                <p class="card-title"><%= event.title %></p>
-                <p><%= event.date.to_fs(:date_stamp) %><br>
-                <%= event.start_time.to_s(:time_stamp) %> - <%= event.end_time.to_s(:time_stamp) %><br>
-                @<%= event.place %></p><br>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group mt-3">
-                    <%= link_to '詳細', event, class: "btn btn-sm btn-outline-secondary" %>
-                    <% if current_user.admin %>
-                      <%= link_to '編集', edit_event_path(event), class: "btn btn-sm btn-outline-secondary" %>
-                      <%= button_to '削除', event, class: "btn btn-sm btn-outline-secondary", method: :delete %>
-                    <% end %>
-                  </div>
-                    <small class="text-muted"><%= event.created_at.to_s(:date_stamp) %></small>
-                </div>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      </div>
+      <%= render partial: 'event', locals: { events: @events }%>
     </div>
     <div class="event-contents">
       <h2 class= "text-dark">過去イベント一覧</h2>
-      <div class="row">
-        <% @past_events.each do |past_event| %> 
-          <div class="col-lg-4">
-            <div class="card mb-4 shadow-sm" width="20rem;">
-              <% if past_event.image.file %>
-                <%= image_tag past_event.image.url, class:"card-img-top", alt:"past_event_image" %>
-              <% else %>
-                <%= image_tag "event_default.jpg", class:"card-img-top", alt:"default_image" %>
-              <% end %>
-              <div class="card-body">
-                <p class="card-title"><%= past_event.title %></p>
-                <p><%= past_event.date.to_fs(:date_stamp) %><br>
-                <%= past_event.start_time.to_s(:time_stamp) %> - <%= past_event.end_time.to_s(:time_stamp) %><br>
-                @<%= past_event.place %></p><br>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group mt-3">
-                    <%= link_to '詳細', past_event, class: "btn btn-sm btn-outline-secondary" %>
-                    <% if current_user.admin %>
-                      <%= link_to '編集', edit_event_path(past_event), class: "btn btn-sm btn-outline-secondary" %>
-                      <%= button_to '削除', past_event, class: "btn btn-sm btn-outline-secondary", method: :delete %>
-                    <% end %>
-                  </div>
-                    <small class="text-muted"><%= past_event.created_at.to_s(:date_stamp) %></small>
-                </div>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      </div>
+      <%= render partial: 'event', locals: { events: @past_events }%>
     </div>
   </div>
 </main>

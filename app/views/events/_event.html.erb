@@ -1,0 +1,29 @@
+      <div class="row">
+        <% events.each do |event| %> 
+          <div class="col-lg-4">
+            <div class="card mb-4 shadow-sm" width="20rem;">
+              <% if event.image.file %>
+                <%= image_tag event.image.url, class:"card-img-top", alt:"event_image" %>
+              <% else %>
+                <%= image_tag "event_default.jpg", class:"card-img-top", alt:"default_image" %>
+              <% end %>
+              <div class="card-body">
+                <p class="card-title"><%= event.title %></p>
+                <p><%= event.date.to_fs(:date_stamp) %><br>
+                <%= event.start_time.to_s(:time_stamp) %> - <%= event.end_time.to_s(:time_stamp) %><br>
+                @<%= event.place %></p><br>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group mt-3">
+                    <%= link_to '詳細', event, class: "btn btn-sm btn-outline-secondary" %>
+                    <% if current_user.admin %>
+                      <%= link_to '編集', edit_event_path(event), class: "btn btn-sm btn-outline-secondary" %>
+                      <%= button_to '削除', event, class: "btn btn-sm btn-outline-secondary", method: :delete %>
+                    <% end %>
+                  </div>
+                    <small class="text-muted"><%= event.created_at.to_s(:date_stamp) %></small>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
