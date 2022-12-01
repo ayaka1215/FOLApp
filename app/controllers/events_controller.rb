@@ -3,7 +3,6 @@ class EventsController < ApplicationController
     before_action :is_admin, only: %i[new create edit update destroy]
 
     def index
-        # 現在
         today = Date.today
         @events = Event.where(date: today..).order(created_at: "DESC")
         @past_events = Event.where(date: ..today).order(created_at: "DESC")
@@ -29,6 +28,8 @@ class EventsController < ApplicationController
     def show
         @reserved = Reservation.where(event_id: @event.id)
         @reservation = Reservation.new(event_id: @event.id)
+
+        @reserved_flg = @reserved.find_by(user_id: current_user.id)
     end
 
     def edit

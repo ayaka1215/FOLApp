@@ -18,10 +18,14 @@
         <p><%= @event.date.to_fs(:date_stamp) %>　<%= @event.start_time.to_s(:time_stamp) %> - <%= @event.end_time.to_s(:time_stamp) %> @<%= @event.place %></p>
       </div>
       <div class="event_detail-top-rsv ml-auto">
-        <%= form_for @reservation do |f| %>
-          <%= f.hidden_field :event_id %>
-          <%= f.hidden_field :user_id, :value => current_user.id %>
-          <%= f.submit 'このイベントを予約する', class: 'btn btn-outline-dark btn-rsv' %>
+        <% if @reserved_flg %>
+          <p>予約済み</p>
+        <% else %>
+          <%= form_for @reservation do |f| %>
+            <%= f.hidden_field :event_id %>
+            <%= f.hidden_field :user_id, :value => current_user.id %>
+            <%= f.submit 'このイベントを予約する', class: 'btn btn-outline-dark btn-rsv' %>
+          <% end %>
         <% end %>
       </div>
     </div>
@@ -32,12 +36,15 @@
     </div>
 
     <div class="event_detail-foot">
-      <%= form_for @reservation do |f| %>
-        <%= f.hidden_field :event_id %>
-        <%= f.hidden_field :user_id, :value => current_user.id %>
-        <%= f.submit 'このイベントを予約する', class: 'btn btn-outline-dark btn-rsv' %>
+      <% if @reserved_flg %>
+        <p>予約済み</p>
+      <% else %>
+        <%= form_for @reservation do |f| %>
+          <%= f.hidden_field :event_id %>
+          <%= f.hidden_field :user_id, :value => current_user.id %>
+          <%= f.submit 'このイベントを予約する', class: 'btn btn-outline-dark btn-rsv' %>
+        <% end %>
       <% end %>
-      <%= link_to 'イベント一覧へ戻る', events_path, class: 'btn btn-outline-dark btn-back' %>  
     </div>
 
     <p class="reserved-user_title">予約者一覧</p>
@@ -70,7 +77,7 @@
       </table>
     <% else %>
       <div class="alert alert-secondary text-center" role="alert">
-        現在予約中のメンバーはいません。
+        <p>現在予約中のメンバーはいません。</p>
       </div>
     <% end %>
   </div>
