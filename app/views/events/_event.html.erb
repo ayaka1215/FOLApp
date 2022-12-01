@@ -1,6 +1,6 @@
-      <div class="row">
+      <div class="row row-cols-3">
         <% events.each do |event| %> 
-          <div class="col-lg-4">
+          <div class="col-md-4">
             <div class="card mb-4 shadow-sm" width="20rem;">
               <% if event.image.file %>
                 <%= image_tag event.image.url, class:"card-img-top", alt:"event_image" %>
@@ -17,7 +17,7 @@
                     <%= link_to '詳細', event, class: "btn btn-sm btn-outline-secondary" %>
                     <% if current_user.admin %>
                       <%= link_to '編集', edit_event_path(event), class: "btn btn-sm btn-outline-secondary" %>
-                      <%= button_to '削除', event, class: "btn btn-sm btn-outline-secondary", method: :delete %>
+                      <%= button_to '削除', event, class: "btn btn-sm btn-outline-secondary", method: :delete, data: {confirm: "#{event.title}を削除しますか？"}  %>
                     <% end %>
                   </div>
                     <small class="text-muted"><%= event.created_at.to_s(:date_stamp) %></small>
