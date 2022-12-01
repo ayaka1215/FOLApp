@@ -1,22 +1,7 @@
 <div class="container">
     <h2>マイページ</h2>
     <div class="contents mypage_contents">
-        <div class="mypage_top text-center">
-            <div class="mypage_top-image">
-                <% if @user.image? %>
-                    <%= image_tag @user.image.url %>
-                <% else %>
-                    <%= image_tag "user_default.jpg", class:"", alt:"default_image" %>
-                <% end %>            
-            </div>
-            <div class="mypage_top-name"><%= @user.email%></div>
-            <div class="mypage_top-parts">
-            <% @user.parts.each do |part| %>
-                <span class="part-item"><%= part.name %></span>
-            <% end %>
-            </div>
-            <div class="mypage_top-profile"><%= @user.profile%></div>
-        </div>
+        <%= render partial: 'profile', locals: { user: @user }%>
         <ul class="mypage_menu d-flex justify-content-between">
             <li class="mypage_menu_list"><%= link_to '予約一覧', reservations_path, class:"mypage_menu_list-link" %></li>
             <li class="mypage_menu_list"><%= link_to 'プロフィール編集', mypage_profile_edit_path, class:"mypage_menu_list-link" %></li>

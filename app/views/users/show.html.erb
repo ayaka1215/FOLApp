@@ -1,22 +1,6 @@
 <div class="container">
     <h2>メンバー詳細</h2>
     <div class="contents user_show">
-        <div class="mypage_top text-center">
-            <div class="mypage_top-image">
-                <% if @user.image? %>
-                    <%= image_tag @user.image.url %>
-                <% else %>
-                    <%= image_tag "user_default.jpg", class:"", alt:"default_image" %>
-                <% end %>            
-            </div>
-            <div class="mypage_top-name"><%= @user.email%></div>
-            <div class="mypage_top-parts">
-            <% @user.parts.each do |part| %>
-                <span class="part-item"><%= part.name %></span>
-            <% end %>
-            </div>
-            <div class="mypage_top-profile"><%= @user.profile%></div>
-        </div>
-        </div>
+        <%= render partial: 'profile', locals: { user: @user } %>
     </div>
 </div>
