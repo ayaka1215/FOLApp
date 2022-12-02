@@ -23,6 +23,11 @@
           <%= f.label :password_confirmation, class: "form-label" %><br />
           <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
         </div>
+
+        <div class="field form-group">
+          <%= f.label :admin, class: "form-label" %><br />
+          <%= f.check_box :admin, checked_value: "1", unchecked_value: "0", class: "form-control" %>
+        </div>
       </div>
 
         <div class="actions form-group">
