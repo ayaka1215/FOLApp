@@ -13,8 +13,8 @@
   <body>
     <% if current_user%>
       <%= render 'header' %>
-      <%= render 'layouts/flash' %>
     <% end %>
+    <%= render 'layouts/flash' %>
     <%= yield %>
   </body>
 </html>
