@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
     # TODO：対象アクション要確認
-    before_action :set_target_user, only: %i[edit update]
+    before_action :set_me, only: %i[edit update]
+    before_action :set_target_user, only: %i[show destroy]
     before_action :is_admin, only: %i[index]
     def index
         # ユーザー一覧
@@ -13,7 +14,6 @@ class UsersController < ApplicationController
     end
 
     def show
-        @user = User.find(params[:id])
     end
 
     def edit
@@ -31,15 +31,24 @@ class UsersController < ApplicationController
         end
     end
 
+    def destroy
+        @user.destroy
+        sign_out(resource_name)
+        redirect_to users_path, flash: { notice: "「ユーザー#{@user.name}を削除しました」" }
+    end
+
     private
 
     def user_params
         params.require(:user).permit(:name, :profile, :image, part_ids: [])
     end
 
-    # わかりにくいのでコメントor編集
-    def set_target_user
+    def set_me
         @user = User.find(current_user.id)
+    end
+
+    def set_target_user
+        @user = User.find(params[:id])
     end
     
     def is_admin
