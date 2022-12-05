@@ -32,7 +32,7 @@
           </td>
           <td><%= user.created_at.to_s(:date_time_stamp) %></td>
           <td><%= link_to '詳細', user, class: 'btn btn-outline-dark' %></td>
-          <%# <td><%= button_to "削除", user_registration_path(user), { class: "btn btn-outline-dark", method: :delete, form: { data: { turbo_confirm: "#{user.name}を削除します。\r\nよろしいですか？" } } } %></td>
+          <td><%= button_to "削除", user, { class: "btn btn-outline-dark", method: :delete, form: { data: { turbo_confirm: "#{user.name}を削除します。\r\nよろしいですか？" } } } %></td>
         </tr>
       <% end %>
     </tbody>

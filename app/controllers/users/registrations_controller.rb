@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  # ログイン中でもユーザー登録可能に
   prepend_before_action :require_no_authentication, :only => [ :cancel]
   prepend_before_action :authenticate_scope!, :only => [:new, :create ,:edit, :update, :destroy]
   # before_action :configure_sign_up_params, only: [:create]
@@ -49,13 +48,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # DELETE /resource
   def destroy
-    binding.pry
-    resource.destroy
-    Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name)
-    set_flash_message! :notice, :destroyed
-    binding.pry
-    yield resource if block_given?
-    respond_with_navigational(resource){ redirect_to after_sign_out_path_for(resource_name) }
+    super
   end
 
   # GET /resource/cancel

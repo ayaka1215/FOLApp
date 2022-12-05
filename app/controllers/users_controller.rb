@@ -32,9 +32,15 @@ class UsersController < ApplicationController
     end
 
     def destroy
-        @user.destroy
-        sign_out(resource_name)
-        redirect_to users_path, flash: { notice: "「ユーザー#{@user.name}を削除しました」" }
+        if @user.destroy
+            flash[:notice] = "ユーザー#{@user.name}を削除しました"
+            redirect_to users_path
+        else
+            redirect_to users_path, flash: {
+                user: @user,
+                alert: @user.errors.full_messages
+            }
+        end
     end
 
     private
