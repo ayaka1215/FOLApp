@@ -2,7 +2,7 @@ class UsersController < ApplicationController
     # TODO：対象アクション要確認
     before_action :set_me, only: %i[edit update]
     before_action :set_target_user, only: %i[show destroy]
-    before_action :is_admin, only: %i[index]
+    before_action :is_admin, only: %i[index destroy]
     def index
         # ユーザー一覧
         @users = User.all
