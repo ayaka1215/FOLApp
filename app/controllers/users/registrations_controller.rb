@@ -3,14 +3,12 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   prepend_before_action :require_no_authentication, :only => [ :cancel]
   prepend_before_action :authenticate_scope!, :only => [:new, :create ,:edit, :update, :destroy]
+  prepend_before_action :authenticate_scope!, :only => [:new, :create, :destroy]
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
   def new
-    unless current_user.admin
-      redirect_to event_path
-    end
     super
   end
 
@@ -58,6 +56,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # removing all OAuth session data.
   def cancel
     super
+  end
+
+  private
+
+  def is_admin
+    unless current_user.admin
+      redirect_to event_path
+    end
   end
 
   # protected
