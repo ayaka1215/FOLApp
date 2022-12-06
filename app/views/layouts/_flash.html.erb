@@ -1,9 +1,13 @@
 <div class="flash_message text-center">
     <% if flash[:notice] %>
         <p class="alert alert-success text_center"><%= notice %></p>
-    <% elsif flash[:alert] %>
-        <% alert.each do |al_msg| %>
-            <p class="alert alert-danger text_center"><%= msg %></p>
+    <% end %>
+    <% if flash[:alert] %>
+        <p class="alert alert-danger text_center"><%= alert %></p>
+    <% end %>
+    <% if flash[:valid_alert] %>
+        <% flash[:valid_alert].each do |alert| %>
+            <p class="alert alert-danger text_center"><%= alert %></p>
         <% end %>
     <% end %>
 </div>
