@@ -9,8 +9,10 @@ class ReservationsController < ApplicationController
             flash[:notice] = "イベント#{reservation.event.title}を予約しました。"
             redirect_to events_path
         else
-            flash[:alert] = reservation.errors.full_messages
-            redirect_to events_path
+            redirect_to events_path, flash: {
+                reservation: reservation,
+                alert: reservation.errors.full_messages
+            }
         end
     end
 
@@ -20,8 +22,10 @@ class ReservationsController < ApplicationController
         flash[:notice] = "イベント#{reservation.event.title}の予約を取り消しました。"
         redirect_to event_path        
        else
-        flash[:alert] = reservation.errors.full_messages
-        redirect_to events_path
+        redirect_to events_path, flash: {
+            reservation: reservation,
+            alert: reservation.errors.full_messages
+        }
        end        
     end
 
