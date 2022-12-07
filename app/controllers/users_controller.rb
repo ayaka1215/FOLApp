@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
     # TODO：対象アクション要確認
+    before_action :authenticate_user!
     before_action :set_me, only: %i[edit update]
     before_action :set_target_user, only: %i[show destroy]
     before_action :is_admin, only: %i[index destroy]
