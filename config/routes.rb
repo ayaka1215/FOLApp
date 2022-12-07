@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   devise_scope :user do
     root "users/sessions#new"
-    # delete "users/:id/destroy", to:"registrations#destroy", as: :destroy_user_registration
   end
 
   devise_for :users, :controllers => {
