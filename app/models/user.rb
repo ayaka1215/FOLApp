@@ -7,6 +7,12 @@ class User < ApplicationRecord
 
   has_many :user_part_relations, dependent: :delete_all
   has_many :parts, through: :user_part_relations
+  has_many :likes, dependent: :destroy
 
   mount_uploader :image, ImageUploader
+
+  def liked_by?(post_id)
+    likes.where(post_id: post_id).exists?
+  end
+  
 end
