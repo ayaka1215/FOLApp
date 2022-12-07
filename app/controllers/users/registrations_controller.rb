@@ -45,7 +45,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # DELETE /resource
   def destroy
-    resource = User.find(params[:format])   
+    resource = User.find(params[:format]) 
+    # TODO:該当ユーザーのsignout記載
     if resource.destroy
       flash[:notice] = "ユーザー#{resource.name}を削除しました"
       redirect_to users_path
