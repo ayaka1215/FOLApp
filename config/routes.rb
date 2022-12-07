@@ -13,5 +13,7 @@ Rails.application.routes.draw do
   get 'mypage/profile_edit', to: 'users#edit'
 
   resources :events
+  resources :likes, only: [:create, :destroy]
+
   resources :reservations
 end

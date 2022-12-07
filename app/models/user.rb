@@ -11,8 +11,8 @@ class User < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
-  def liked_by?(post_id)
-    likes.where(post_id: post_id).exists?
+  def liked_by?(event_id)
+    likes.where(event_id: event_id).exists?
   end
-  
+
 end

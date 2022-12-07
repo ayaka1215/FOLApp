@@ -16,6 +16,9 @@
       <div class="event_detail-top-cont">
         <p class="event-title"><%= @event.title %></p>
         <p><%= @event.date.to_fs(:date_stamp) %>　<%= @event.start_time.to_s(:time_stamp) %> - <%= @event.end_time.to_s(:time_stamp) %> @<%= @event.place %></p>
+        <div id="likes_buttons_<%= @event.id %>">
+          <%= render "likes/like", event: @event, like: @like %>
+        </div>
       </div>
       <div class="event_detail-top-rsv ml-auto">
         <% if @reserved_flg %>

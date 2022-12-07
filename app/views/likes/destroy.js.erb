@@ -1,0 +1,2 @@
+console.log('destroy');
+$('#likes_buttons_<%= @event.id %>').html("<%= j(render "likes/like", event: @event) %>");
