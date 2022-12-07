@@ -2,7 +2,7 @@
 
 class Users::RegistrationsController < Devise::RegistrationsController
   prepend_before_action :require_no_authentication, :only => [ :cancel]
-  prepend_before_action :authenticate_scope!, :only => [:new, :create ,:edit, :update, :destroy]
+  prepend_before_action :authenticate_scope!, :only => [:new, :create ,:edit, :update]
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
@@ -45,15 +45,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # DELETE /resource
   def destroy
-    binding.pry
-    return
-    resource.destroy
-    Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name)
-    set_flash_message! :notice, :destroyed
-    yield resource if block_given?
-    respond_with_navigational(resource){ redirect_to after_sign_out_path_for(resource_name) }
+    resource = User.find(params[:format])   
+    if resource.destroy
+      flash[:notice] = "ユーザー#{resource.name}を削除しました"
+      redirect_to users_path
+    else
+        redirect_to users_path, flash: {
+            user: resource,
+            alert: resource.errors.full_messages
+        }
+    end
   end
-
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
   # in to be expired now. This is useful if the user wants to
