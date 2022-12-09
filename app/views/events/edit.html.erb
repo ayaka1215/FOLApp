@@ -2,7 +2,7 @@
     <div class="d-flex align-items-center">
         <h1>イベント編集</h1>
         <div class="ml-auto boards__linkBox">
-            <a class="'btn btn-outline-dark'" href="../">一覧</a>
+            <%= link_to '一覧へ戻る', events_path, class: 'btn btn-outline-dark' %>
         </div>
     </div>
     <%= render partial: 'form', locals: { event: @event } %>
