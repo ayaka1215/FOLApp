@@ -50,38 +50,40 @@
       <% end %>
     </div>
 
-    <p class="reserved-user_title">予約者一覧</p>
-    <% if !@reserved.empty? %>
-      <table class="table reserved-user_body">
-        <thead class="thead-dark">
-          <tr>
-            <th>ID</th>
-            <th>名前</th>
-            <th>メールアドレス</th>
-            <th>担当パート</th>
-            <th>予約日時</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @reserved.each do |reserved| %>
+    <% if current_user.admin %>
+      <p class="reserved-user_title">予約者一覧</p>
+      <% if !@reserved.empty? %>
+        <table class="table reserved-user_body">
+          <thead class="thead-dark">
             <tr>
-              <td><%= reserved.user.id %></td>
-              <td><%= reserved.user.name %></td>
-              <td><%= reserved.user.email %></td>
-              <td>
-                <% reserved.user.parts.each do |part|%>
-                  <%= part.name %>
-                <% end %>
-              </td>
-              <td><%= reserved.created_at.to_s(:date_time_stamp) %></td>
+              <th>ID</th>
+              <th>名前</th>
+              <th>メールアドレス</th>
+              <th>担当パート</th>
+              <th>予約日時</th>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
-    <% else %>
-      <div class="alert alert-secondary text-center" role="alert">
-        <p>現在予約中のメンバーはいません。</p>
-      </div>
+          </thead>
+          <tbody>
+            <% @reserved.each do |reserved| %>
+              <tr>
+                <td><%= reserved.user.id %></td>
+                <td><%= reserved.user.name %></td>
+                <td><%= reserved.user.email %></td>
+                <td>
+                  <% reserved.user.parts.each do |part|%>
+                    <%= part.name %>
+                  <% end %>
+                </td>
+                <td><%= reserved.created_at.to_s(:date_time_stamp) %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% else %>
+        <div class="alert alert-secondary text-center" role="alert">
+          <p>現在予約中のメンバーはいません。</p>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
