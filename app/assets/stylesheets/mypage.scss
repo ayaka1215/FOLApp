@@ -3,12 +3,16 @@ li{
 }
 
 
-.mypage_top{
-
-    margin-bottom: 30px;
+.user__cont{
 
     & > div{
-        margin-bottom: 10px;
+        margin-bottom: 50px;
+    }
+
+    &-main{
+        & > div{
+            margin-bottom: 10px;
+        }
     }
 
     &-image{
@@ -45,10 +49,8 @@ li{
 }
 
 
-.mypage_menu{
-    width: 95%;
-
-    &_list{
+.user__sidebar{
+    &-list{
         background-color: #ccc;
         width: 230px;
         text-align: center;
