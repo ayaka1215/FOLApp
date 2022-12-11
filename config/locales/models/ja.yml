@@ -8,3 +8,17 @@ ja:
         password: パスワード
         Password_confirmation: パスワード（確認用）
         remember_me: メールアドレス・パスワードを保存する
+        admin: 管理権限
+        image: プロフィール画像
+        name: 名前
+        profile: プロフィール
+      event:
+        title: イベントタイトル
+        content: イベント内容
+        date: 開催日
+        start_time: 開始時刻
+        end_time: 終了時刻
+        place: 開催場所
+        image: イベント画像
+      part:
+        name: パート名
