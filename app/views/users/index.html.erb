@@ -11,7 +11,7 @@
         <th>ID</th>
         <th>名前</th>
         <th>メールアドレス</th>
-        <th>管理権限</th>
+        <th>区分</th>
         <th>担当パート</th>
         <th>作成日時</th>
         <th></th>
@@ -24,7 +24,13 @@
           <td><%= user.id %></td>
           <td><%= user.name %></td>
           <td><%= user.email %></td>
-          <td><%= user.admin %></td>
+          <td>
+            <% if user.admin %>
+              管理者
+            <% else %>
+              メンバー
+            <% end %>
+          </td>
           <td>
             <% user.parts.each do |part|%>
               <%= part.name %>
@@ -32,7 +38,11 @@
           </td>
           <td><%= user.created_at.to_s(:date_time_stamp) %></td>
           <td><%= link_to '詳細', user, class: 'btn btn-outline-dark' %></td>
-          <td><%= button_to "削除", user_registration_path(user), { class: "btn btn-outline-dark", method: :delete, form: { data: { turbo_confirm: "#{user.name}を削除します。\r\nよろしいですか？" } } } %></td>
+          <td>
+            <% unless current_user.id == user.id %>
+              <%= button_to "削除", user_registration_path(user), { class: "btn btn-outline-dark", method: :delete, form: { data: { turbo_confirm: "#{user.name}を削除します。\r\nよろしいですか？" } } } %>
+            <% end %>
+          </td>
         </tr>
       <% end %>
     </tbody>
