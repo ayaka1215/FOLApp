@@ -10,4 +10,9 @@
             <p class="alert alert-danger text_center"><%= alert %></p>
         <% end %>
     <% end %>
+    <% if flash[:attribute] %>
+        <% flash[:attribute].each do |attribute| %>
+            <p class="alert alert-danger text_center"><%= attribute %></p>
+        <% end %>
+    <% end %>
 </div>

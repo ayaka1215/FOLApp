@@ -21,7 +21,8 @@ class EventsController < ApplicationController
         else
             redirect_to new_event_path, flash: {
                 event: event,
-                valid_alert: event.errors.full_messages
+                valid_alert: event.errors.full_messages,
+                attribute: event.errors.attribute_names
             }
         end
     end
@@ -44,7 +45,8 @@ class EventsController < ApplicationController
         else
             redirect_to edit_event_path, flash: {
                 event: @event,
-                alert: @event.errors.full_messages
+                valid_alert: @event.errors.full_messages,
+                attribute: @event.errors.attribute_names
             }
         end
     end
