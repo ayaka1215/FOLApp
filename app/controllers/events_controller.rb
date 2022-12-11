@@ -5,8 +5,8 @@ class EventsController < ApplicationController
 
     def index
         today = Date.today
-        @events = Event.where(date: today..).order(created_at: "DESC")
-        @past_events = Event.where(date: ..today).order(created_at: "DESC")
+        @events = Event.where(date: today..).page(params[:page]).per(20).order(created_at: "DESC")
+        @past_events = Event.where(date: ...today).page(params[:page]).per(20).order(created_at: "DESC")
     end
 
     def new

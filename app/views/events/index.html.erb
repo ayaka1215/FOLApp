@@ -8,10 +8,12 @@
     <div class="event-contents">
       <h2 class= "text-dark">イベント一覧</h2>
       <%= render partial: 'event', locals: { events: @events }%>
+      <%= paginate @events %>
     </div>
     <div class="event-contents">
       <h2 class= "text-dark">過去イベント一覧</h2>
       <%= render partial: 'event', locals: { events: @past_events }%>
+      <%= paginate @past_events %>
     </div>
   </div>
 </main>

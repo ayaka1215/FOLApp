@@ -82,3 +82,5 @@ gem 'carrierwave'
 gem 'font-awesome-rails'
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
+
+gem 'kaminari'
