@@ -29,7 +29,6 @@ class EventsController < ApplicationController
     def show
         @reserved = Reservation.where(event_id: @event.id)
         @reservation = Reservation.new(event_id: @event.id)
-        # TODO：↓怪しい。他のイベントのものも取得しているのではないか。
         @reserved_flg = @reserved.find_by(user_id: current_user.id)
         @like = Like.find_by(event_id: @event.id, user_id: current_user.id)
     end

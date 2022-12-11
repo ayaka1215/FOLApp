@@ -1,22 +1,21 @@
 class UsersController < ApplicationController
-    # TODO：対象アクション要確認
     before_action :authenticate_user!
-    before_action :set_me, only: %i[edit update]
-    before_action :set_target_user, only: %i[show destroy]
-    before_action :is_admin, only: %i[index destroy]
+    before_action :set_me, only: %i[me edit update]
+    before_action :set_target_user, only: %i[show]
+    before_action :is_admin, only: %i[index]
 
     def index
         @users = User.all
     end
 
     def me
-        @user = User.find(current_user.id)
         @reservations = Reservation.where(user_id: current_user.id)
     end
 
     def show
     end
 
+    # プロフィール編集
     def edit
     end
 
