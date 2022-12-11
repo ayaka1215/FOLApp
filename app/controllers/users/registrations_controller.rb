@@ -45,6 +45,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # DELETE /resource
   def destroy
+    if current_user.id == params[:format] 
+      redirect_to users_path
+    end
     resource = User.find(params[:format]) 
     # TODO:該当ユーザーのsignout記載
     if resource.destroy
