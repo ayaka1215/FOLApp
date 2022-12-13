@@ -17,10 +17,10 @@
                     <%= link_to '詳細', event, class: "btn btn-sm btn-outline-secondary" %>
                     <% if current_user.admin %>
                       <%= link_to '編集', edit_event_path(event), class: "btn btn-sm btn-outline-secondary" %>
-                      <%= button_to '削除', event, { class: "btn btn-sm btn-outline-secondary", method: :delete, form: { data: { turbo_confirm: "#{event.title}を削除します。\r\nよろしいですか？" } } }  %>
+                      <%= button_to '削除', event, class: "btn btn-sm btn-outline-secondary", method: :delete %>
                     <% end %>
                   </div>
-                    <small class="text-muted"><%= event.created_at.to_s(:date_stamp) %></small>
+                    <small class="text-muted"><%= event.updated_at.to_s(:date_stamp) %>更新</small>
                 </div>
               </div>
             </div>
