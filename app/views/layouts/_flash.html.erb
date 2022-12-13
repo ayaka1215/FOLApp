@@ -5,14 +5,4 @@
     <% if flash[:alert] %>
         <p class="alert alert-danger text_center"><%= alert %></p>
     <% end %>
-    <% if flash[:valid_alert] %>
-        <% flash[:valid_alert].each do |alert| %>
-            <p class="alert alert-danger text_center"><%= alert %></p>
-        <% end %>
-    <% end %>
-    <% if flash[:attribute] %>
-        <% flash[:attribute].each do |attribute| %>
-            <p class="alert alert-danger text_center"><%= attribute %></p>
-        <% end %>
-    <% end %>
 </div>
