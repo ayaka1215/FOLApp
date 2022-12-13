@@ -12,10 +12,7 @@
         </div>
 
         <div class="field form-group">
-          <%= f.label :password, class: "form-label" %>
-          <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> 字以上の英数字)</em>
-          <% end %><br />
+          <%= f.label :password, class: "form-label" %>（<%= @minimum_password_length %> 字以上の英数字）<br />
           <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
         </div>
 
@@ -25,8 +22,7 @@
         </div>
 
         <div class="field form-group">
-          <%= f.label :admin, class: "form-label" %><br />
-          <%= f.check_box :admin, checked_value: "1", unchecked_value: "0", class: "form-control" %>
+          <%= f.check_box :admin, checked_value: "1", unchecked_value: "0" %><%= f.label :admin, class: "form-label" %>を付与する
         </div>
       </div>
 
