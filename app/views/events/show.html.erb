@@ -23,7 +23,9 @@
       </div>
       <div class="event_detail-top-rsv ml-auto">
         <% if @reserved_flg %>
-          <p>予約済み</p>
+          <div class="alert alert-secondary text-center" role="alert">
+            予約済みです。
+          </div>
         <% else %>
           <%= form_for @reservation do |f| %>
             <%= f.hidden_field :event_id %>
@@ -41,7 +43,9 @@
 
     <div class="event_detail-foot">
       <% if @reserved_flg %>
-        <p>予約済み</p>
+          <div class="alert alert-secondary text-center" role="alert">
+            予約済みです。
+          </div>
       <% else %>
         <%= form_for @reservation do |f| %>
           <%= f.hidden_field :event_id %>
