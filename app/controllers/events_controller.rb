@@ -53,7 +53,7 @@ class EventsController < ApplicationController
 
     def destroy
        @event.destroy
-       redirect_to event_path, flash: { notice: "「#{@event.title}のイベントを削除しました」" }
+       redirect_to events_path, flash: { notice: "「#{@event.title}のイベントを削除しました」" }
     end
 
     private
