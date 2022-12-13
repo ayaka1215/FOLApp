@@ -6,7 +6,8 @@ ja:
       user:
         email: メールアドレス
         password: パスワード
-        Password_confirmation: パスワード（確認用）
+        password_confirmation: パスワード（確認用）
+        current_password: 現在のパスワード
         remember_me: メールアドレス・パスワードを保存する
         admin: 管理権限
         image: プロフィール画像
