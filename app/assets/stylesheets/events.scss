@@ -108,24 +108,21 @@
  
 // }
 
-.required::after{
-    content: "必須";
+.label::after{
     color: #fff;
     padding: 2px 5px;
-    background-color: #EC2036;
     font-size: 12px;
     border-radius: 5px;
     margin-left: 3px;
     vertical-align: middle;
 }
 
-.option::after{
+.label-required::after{
+    content: "必須";
+    background-color: #EC2036;
+}
+
+.label-option::after{
     content: "任意";
-    color: #fff;
-    padding: 2px 5px;
     background-color: #666;
-    font-size: 12px;
-    border-radius: 5px;
-    margin-left: 3px;
-    vertical-align: middle;
 }
