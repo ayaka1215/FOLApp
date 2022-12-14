@@ -6,7 +6,7 @@
       <%= render "devise/shared/error_messages", resource: resource %>
 
       <div class="field form-group">
-        <%= f.label :email, class: "form-label" %><br />
+        <%= f.label :email, class: "form-label label label-required" %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
       </div>
 
@@ -16,17 +16,17 @@
 
       <div class="field form-group">
         <%= f.label :password, class: "form-label" %>（<%= @minimum_password_length %>文字以上の英数字）<br />
-        <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+        <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: '●●●●●●●●' %>
       </div>
 
       <div class="field form-group">
         <%= f.label :password_confirmation, class: "form-label" %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: '●●●●●●●●' %>
       </div>
 
       <div class="field form-group">
-        <%= f.label :current_password, class: "form-label" %><br />
-        <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
+        <%= f.label :current_password, class: "form-label label label-required" %><br />
+        <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control", placeholder: '●●●●●●●●' %>
       </div>
 
       <div class="actions form-group">

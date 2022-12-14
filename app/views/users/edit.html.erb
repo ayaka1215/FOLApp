@@ -3,7 +3,7 @@
         <h2>プロフィール編集</h2>
         <%= form_for @user do |f| %>
             <div class="field">
-                <span>担当パート</span>
+                <span class="label label-option">担当パート</span>
                 <%= f.collection_check_boxes(:part_ids, Part.all, :id, :name) do |part| %>
                 <div class="btn">
                     <%= part.label class: 'btn btn-secondary' do %>
@@ -20,13 +20,16 @@
 </div>
 
         <div class="field">
-            <%= f.label :name %><br />
-            <%= f.text_field :name, autocomplete: "ニックネーム" %>
+            <%= f.label :name, class: 'label label-option' %><br />
+            <%= f.text_field :name, autocomplete: "ニックネーム", placeholder: '山田太郎' %>
         </div>
 
             <div class="field">
-            <%= f.label :profile %><br />
-            <%= f.text_area :profile, autocomplete: "プロフィール文" %>
+            <%= f.label :profile, class: 'label label-option' %><br />
+            <%= f.text_area :profile, autocomplete: "プロフィール文", placeholder: 'ベーシストの山田太郎です。
+「太郎」って気軽に呼んでください！
+普段は会社員をしながら、週末はよくライブハウスで演奏しています。
+セッションが大好きなので、たくさんイベントに参加したいと思います！よろしくお願いします！' %>
         </div>
             <%= f.submit '保存', class: 'btn btn-primary' %>
         <% end %>
