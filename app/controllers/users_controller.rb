@@ -10,6 +10,8 @@ class UsersController < ApplicationController
 
     def me
         @reservations = Reservation.where(user_id: current_user.id)
+        @likes = Like.where(user_id: current_user.id)
+        binding.pry
     end
 
     def show
