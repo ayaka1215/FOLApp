@@ -42,7 +42,7 @@
                         <p class="reservation-date">日付：<%= like.event.date.to_fs(:date_stamp) %></p>
                         <p class="reservation-datetime">時間：<%= like.event.start_time.to_s(:time_stamp) %> - <%= like.event.end_time.to_s(:time_stamp) %></p>
                         <p class="reservation-event_place">場所：<%= like.event.place %></p>
-                        <p><%= button_to 'このイベントをキャンセルする', like, { class: "btn btn-sm btn-outline-secondary cancel-btn", method: :delete, form: { data: { turbo_confirm: "#{like.event.title}の予約をキャンセルします\r\nよろしいですか？"}}} %></p>
+                        <p><%= link_to 'イベントの詳細を見る', like.event, { class: "btn btn-sm btn-outline-secondary cancel-btn" } %></p>
                     </div>
                 </div>
             <% end %>
