@@ -1,4 +1,4 @@
-        <% if @like %>
+        <% if like %>
           <%= button_to like_path(event), method: :delete, turbo: false, remote: true do %>
             ♥<%= event.likes.count %>いいね
           <% end %>
