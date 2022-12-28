@@ -1,6 +1,4 @@
 // Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
-import { Turbo } from "@hotwired/turbo-rails"
-Turbo.session.drive = false
 import "controllers"
 
 // This is a manifest file that'll be compiled into application.js, which will include all the files
@@ -22,3 +20,6 @@ import "controllers"
 //= require jquery.turbolinks
 //= require turbolinks
 //= require_tree .
+
+window.jQuery = $;
+window.$ = $;
