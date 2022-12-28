@@ -1,9 +1,9 @@
         <% if like %>
-          <%= button_to like_path(event), method: :delete, turbo: false, remote: true do %>
+          <%= button_to like_path(event), method: :delete, turbo: false, local: false do %>
             ♥<%= event.likes.count %>いいね
           <% end %>
         <% else %>
-          <%= button_to likes_path(event), method: :post, turbo: false,  remote: true do %>
+          <%= button_to likes_path(event), method: :post, turbo: false, local: false do %>
             ♡<%= event.likes.count %>いいね
           <% end %>
         <% end %>
