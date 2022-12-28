@@ -7,11 +7,11 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 if Rails.env == 'development'
-    Part.create([
-        { name: 'Vocal' },
-        { name: 'Guitar' },
-        { name: 'Bass' },
-        { name: 'Keyboard'},
-        { name: 'Drum'}
-    ])
+    5.times do |n|
+        User.create!(
+          email: "test#{n + 1}@test.com",
+          name: "テスト太郎#{n + 1}",
+          password: 'xxxxxxxx'
+        )
+      end
 end
