@@ -2,35 +2,41 @@
     <div class="my_edit-box">
         <h2>プロフィール編集</h2>
         <%= form_for @user do |f| %>
-            <div class="field">
-                <span class="label label-option">担当パート</span>
+            <div class="field form-group">
+                <p class="label label-option">担当パート</p>
                 <%= f.collection_check_boxes(:part_ids, Part.all, :id, :name) do |part| %>
-                <div class="btn">
-                    <%= part.label class: 'btn btn-secondary' do %>
-                    <%= part.check_box class: 'btn-check' %>
-                    <%= part.text %>
-                    <% end %>
-                </div>
-            <% end %>
-        </div>
+                    <div class="btn">
+                        <%= part.label class: 'btn btn-secondary' do %>
+                        <%= part.check_box class: 'btn-check' %>
+                        <%= part.text %>
+                        <% end %>
+                    </div>
+                <% end %>
+            </div>
 
-        <div class="field">
-  <%= f.label :image %>
-  <%= f.file_field :image %>
-</div>
+            <div class="field form-group">
+                <%= f.label :email, class: "form-label label label-required" %><br />
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+            </div>
 
-        <div class="field">
-            <%= f.label :name, class: 'label label-option' %><br />
-            <%= f.text_field :name, autocomplete: "ニックネーム", placeholder: '山田太郎' %>
-        </div>
+            <div class="field form-group">
+                <%= f.label :image %>
+                <%= f.file_field :image %>
+            </div>
 
-            <div class="field">
-            <%= f.label :profile, class: 'label label-option' %><br />
-            <%= f.text_area :profile, autocomplete: "プロフィール文", placeholder: 'ベーシストの山田太郎です。
+            <div class="field form-group">
+                <%= f.label :name, class: 'label label-option' %><br />
+                <%= f.text_field :name, autocomplete: "ニックネーム", placeholder: '山田太郎', class: "form-control" %>
+            </div>
+
+            <div class="field form-group">
+                <%= f.label :profile, class: 'label label-option' %><br />
+                <%= f.text_area :profile, autocomplete: "プロフィール文", placeholder: 'ベーシストの山田太郎です。
 「太郎」って気軽に呼んでください！
 普段は会社員をしながら、週末はよくライブハウスで演奏しています。
-セッションが大好きなので、たくさんイベントに参加したいと思います！よろしくお願いします！' %>
-        </div>
+セッションが大好きなので、たくさんイベントに参加したいと思います！よろしくお願いします！', class: "form-control" %>
+            </div>
+
             <%= f.submit '保存', class: 'btn btn-primary' %>
         <% end %>
     </div>
