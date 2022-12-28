@@ -5,10 +5,16 @@
             <%= image_tag "user_default.jpg", class:"", alt:"default_image" %>
         <% end %>            
     </div>
-    <div class="user__cont-name"><%= user.email%></div>
+    <div class="user__cont-name">
+    <% if user.name %>
+        <%= user.name %>
+    <% else %>
+        <%= user.email %>
+    <% end %>
+    </div>
     <div class="user__cont-parts">
         <% user.parts.each do |part| %>
-            <span class="part-item"><%= part.name %></span>
+            <span class="part-item part-<%= part.name %>"><%= part.name %></span>
         <% end %>
     </div>
     <div class="user__cont-profile"><%= user.profile %></div>

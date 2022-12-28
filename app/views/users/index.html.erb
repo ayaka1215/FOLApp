@@ -1,6 +1,6 @@
 <div class="container">
   <div class="d-flex">
-    <h2>メンバー一覧</h2>
+    <h2 class="title__main">メンバー一覧</h2>
     <div class="ml-auto events__link-box">
       <%= link_to '新規作成', new_user_registration_path, class: 'btn btn-outline-dark' %>
     </div>
@@ -33,7 +33,7 @@
           </td>
           <td>
             <% user.parts.each do |part|%>
-              <%= part.name %>
+              <span class="part-item part-<%= part.name %>"><%= part.name %></span>
             <% end %>
           </td>
           <td><%= user.created_at.to_s(:date_time_stamp) %></td>

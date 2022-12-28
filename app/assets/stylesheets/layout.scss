@@ -10,9 +10,57 @@ button{
 .container{
     margin-top: 50px;
     max-width: 1000px;
+}
 
-    h2{
+
+.title{
+    &__main{
+        font-size: 32px;
+        letter-spacing: 2px;
+        font-weight: 600;
         margin-bottom: 20px;
-        font-weight: 400;
+        color: #333;
+
+    }
+
+    &__sub{
+        font-size: 32px;
+        letter-spacing: 2px;
+        font-weight: 600;
+        margin-bottom: 20px;
+
+    }
+}
+
+.part{
+    &-item{
+        color: #fff;
+        padding: 5px 10px;
+        margin: 0 5px;
+        border-radius: 5px;
+    }
+
+    &-Vocal{
+        background-color: #50B9A1;
+    }
+
+    &-Guitar{
+        background-color: #F2B034;
+    }
+
+    &-Keyboard{
+        background-color: #D01314;
+    }
+
+    &-Bass{
+        background-color: #088587;
+    }
+
+    &-Drum{
+        background-color: #133041;
+    }
+
+    &-check{
+        display: none;
     }
 }

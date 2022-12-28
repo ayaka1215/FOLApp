@@ -1,16 +1,14 @@
 <div class="container">
     <div class="my_edit-box">
-        <h2>プロフィール編集</h2>
+        <h2 class="title__main">プロフィール編集</h2>
         <%= form_for @user do |f| %>
             <div class="field form-group">
                 <p class="label label-option">担当パート</p>
                 <%= f.collection_check_boxes(:part_ids, Part.all, :id, :name) do |part| %>
-                    <div class="btn">
-                        <%= part.label class: 'btn btn-secondary' do %>
-                        <%= part.check_box class: 'btn-check' %>
-                        <%= part.text %>
-                        <% end %>
-                    </div>
+                    <%= part.label class: "part-item part-#{part.text}" do %>
+                    <%= part.check_box class: 'part-check' %>
+                    <%= part.text %>
+                    <% end %>
                 <% end %>
             </div>
 
