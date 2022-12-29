@@ -7,13 +7,11 @@
         <% end %>            
     </div>
     <div class="user__cont-name">
-    <% if user.name %>
-        <%= user.name %>
-        <i class="fa-solid fa-gear"></i>
-        <i class="fa-brands fa-github"></i>
-    <% else %>
-        <%= user.email %>
-    <% end %>
+        <% if user.name %>
+            <%= user.name %>
+        <% else %>
+            <%= user.email %>
+        <% end %>
     </div>
     <div class="user__cont-parts part-items">
         <% user.parts.each do |part| %>

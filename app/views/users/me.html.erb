@@ -1,23 +1,23 @@
-<div class="container">
+<div class="container user-container">
     <h2 class="title__main">マイページ</h2>
-                <%= render partial: 'profile', locals: { user: @user }%>
-    <div class="d-sm-flex user__box">
-        <div class="user__sidebar col-sm-4">
-            <ul class="user__sidebar-lists">
-                <li class="user__sidebar-list"><%= link_to 'プロフィール編集', mypage_profile_edit_path, class:"user__sidebar-list-link" %></li>
-                <li class="user__sidebar-list"><%= link_to 'パスワード編集', edit_user_registration_path, class:"user__sidebar-list-link" %></li>
-                <li class="user__sidebar-list"><%= button_to 'ログアウト', destroy_user_session_path, class:"user__sidebar-list-link", method: :delete %></li>
-            </ul>
+
+        <%= render partial: 'profile', locals: { user: @user }%>
+    
+    <div class="d-sm-flex">
+        <div class="col-sm-4">
+            <%= render partial: 'menu', locals: { user: @user } %>
         </div>
 
-        <div class="user__cont col-sm-8">
-            <div class="user__cont-reserved">
-                <h3 class="user__subTitle title__sub">予約済みイベント</h3>
-                <%= render partial: 'reservations/reservations', locals: { reservations: @reservations } %>
-            </div>
-            <div class="user__cont-likes">
-                <h3 class="user__subTitle title__sub">いいねしたイベント</h3>
-                <%= render partial: 'likes/like_event', locals: { likes: @likes } %>
+        <div class="col-sm-8">
+            <div class="user__cont">
+                <div class="user__cont-reserved">
+                    <h3 class="user__subTitle title__sub">予約済みイベント</h3>
+                    <%= render partial: 'reservations/reservations', locals: { reservations: @reservations } %>
+                </div>
+                <div class="user__cont-likes">
+                    <h3 class="user__subTitle title__sub">いいねしたイベント</h3>
+                    <%= render partial: 'likes/like_event', locals: { likes: @likes } %>
+                </div>
             </div>
         </div>
     </div>
