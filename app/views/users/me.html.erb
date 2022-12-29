@@ -1,17 +1,15 @@
 <div class="container">
     <h2 class="title__main">マイページ</h2>
-    <div class="row user__box">
-        <div class="user__sidebar col-4">
+    <div class="d-sm-flex user__box">
+        <div class="user__sidebar col-sm-4">
             <ul class="user__sidebar-lists">
                 <li class="user__sidebar-list"><%= link_to 'プロフィール編集', mypage_profile_edit_path, class:"user__sidebar-list-link" %></li>
                 <li class="user__sidebar-list"><%= link_to 'パスワード編集', edit_user_registration_path, class:"user__sidebar-list-link" %></li>
                 <li class="user__sidebar-list"><%= button_to 'ログアウト', destroy_user_session_path, class:"user__sidebar-list-link", method: :delete %></li>
             </ul>
         </div>
-        <div class="user__cont col-8">
-            <div class="user__cont-main">
-                <%= render partial: 'profile', locals: { user: @user }%>
-            </div>
+        <div class="user__cont col-sm-8">
+            <%= render partial: 'profile', locals: { user: @user }%>
             <div class="user__cont-reserved">
                 <h3 class="user__subTitle title__sub">予約済みイベント</h3>
                 <%= render partial: 'reservations/reservations', locals: { reservations: @reservations } %>

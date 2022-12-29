@@ -1,7 +1,7 @@
       <div class="row row-cols-3">
         <% events.each do |event| %> 
           <div class="col-sm-4">
-            <div class="card mb-4 shadow-sm" width="20rem;">
+            <div class="card mb-4 shadow-sm" max-width="20rem;">
               <% if event.image.file %>
                 <%= image_tag event.image.url, class:"card-img-top", alt:"event_image" %>
               <% else %>
