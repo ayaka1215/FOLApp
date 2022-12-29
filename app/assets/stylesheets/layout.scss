@@ -1,3 +1,7 @@
+html{
+    color: #333;
+}
+
 button{
     background-color: transparent;
     border: none;
@@ -19,16 +23,13 @@ button{
         letter-spacing: 2px;
         font-weight: 600;
         margin-bottom: 20px;
-        color: #333;
 
     }
 
     &__sub{
-        font-size: 32px;
+        font-size: 24px;
         letter-spacing: 2px;
         font-weight: 600;
-        margin-bottom: 20px;
-
     }
 }
 

@@ -13,11 +13,11 @@
                 <%= render partial: 'profile', locals: { user: @user }%>
             </div>
             <div class="user__cont-reserved">
-                <h3 class="user__subTitle">予約済みイベント</h3>
+                <h3 class="user__subTitle title__sub">予約済みイベント</h3>
                 <%= render partial: 'reservations/reservations', locals: { reservations: @reservations } %>
             </div>
             <div class="user__cont-likes">
-                <h3 class="user__subTitle">いいねしたイベント</h3>
+                <h3 class="user__subTitle title__sub">いいねしたイベント</h3>
                 <%= render partial: 'likes/like_event', locals: { likes: @likes } %>
             </div>
         </div>
