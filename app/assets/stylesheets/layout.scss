@@ -33,35 +33,55 @@ button{
     }
 }
 
-.part{
-    &-item{
-        color: #fff;
+    .part{
+        &-items{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+
+        &-item{
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        &-Vocal{
+            background-color: #50B9A1;
+        }
+
+        &-Guitar{
+            background-color: #F2B034;
+        }
+
+        &-Keyboard{
+            background-color: #D01314;
+        }
+
+        &-Bass{
+            background-color: #088587;
+        }
+
+        &-Drum{
+            background-color: #133041;
+        }
+    }
+
+.editForm-part{
+    label input {
+        display: none; /* デフォルトのinputは非表示にする */
+    }
+    label span {
         padding: 5px 10px;
         margin: 0 5px;
         border-radius: 5px;
+        color: #333; /* 文字色を黒に */
+        border: 1px solid #333; /* 淵の線を指定 */
+        background-color: #fff;
     }
-
-    &-Vocal{
-        background-color: #50B9A1;
-    }
-
-    &-Guitar{
-        background-color: #F2B034;
-    }
-
-    &-Keyboard{
-        background-color: #D01314;
-    }
-
-    &-Bass{
+    label input:checked + span {
+        color: #FFF;
         background-color: #088587;
-    }
-
-    &-Drum{
-        background-color: #133041;
-    }
-
-    &-check{
-        display: none;
+        border: 1px solid #088587;
     }
 }

@@ -12,7 +12,7 @@
         <%= user.email %>
     <% end %>
     </div>
-    <div class="user__cont-parts">
+    <div class="user__cont-parts part-items">
         <% user.parts.each do |part| %>
             <span class="part-item part-<%= part.name %>"><%= part.name %></span>
         <% end %>
