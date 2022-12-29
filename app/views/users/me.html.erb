@@ -1,5 +1,6 @@
 <div class="container">
     <h2 class="title__main">マイページ</h2>
+                <%= render partial: 'profile', locals: { user: @user }%>
     <div class="d-sm-flex user__box">
         <div class="user__sidebar col-sm-4">
             <ul class="user__sidebar-lists">
@@ -8,8 +9,8 @@
                 <li class="user__sidebar-list"><%= button_to 'ログアウト', destroy_user_session_path, class:"user__sidebar-list-link", method: :delete %></li>
             </ul>
         </div>
+
         <div class="user__cont col-sm-8">
-            <%= render partial: 'profile', locals: { user: @user }%>
             <div class="user__cont-reserved">
                 <h3 class="user__subTitle title__sub">予約済みイベント</h3>
                 <%= render partial: 'reservations/reservations', locals: { reservations: @reservations } %>
