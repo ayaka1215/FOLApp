@@ -14,44 +14,11 @@
             </div>
             <div class="user__cont-reserved">
                 <h3 class="user__subTitle">予約済みイベント</h3>
-                <% if !@reservations.empty? %>
-                    <% @reservations.each do |reservation| %>
-                        <div class="reservation-contents">
-                            <div class="reservation-event_title"><%= reservation.event.title %></div>
-                            <div class="reservation-event_details">
-                                <p class="reservation-date">日付：<%= reservation.event.date.to_fs(:date_stamp) %></p>
-                                <p class="reservation-datetime">時間：<%= reservation.event.start_time.to_s(:time_stamp) %> - <%= reservation.event.end_time.to_s(:time_stamp) %></p>
-                                <p class="reservation-event_place">場所：<%= reservation.event.place %></p>
-                                <p><%= button_to 'このイベントをキャンセルする', reservation, { class: "btn btn-sm btn-outline-secondary cancel-btn", method: :delete, form: { data: { turbo_confirm: "#{reservation.event.title}の予約をキャンセルします\r\nよろしいですか？"}}} %></p>
-                            </div>
-                        </div>
-                    <% end %>
-                <% else %>
-                    <div class="alert alert-secondary text-center" role="alert">
-                        現在予約中のイベントはありません。
-                    </div>
-                <% end %>
+                <%= render partial: 'reservations/reservations', locals: { reservations: @reservations } %>
             </div>
             <div class="user__cont-likes">
                 <h3 class="user__subTitle">いいねしたイベント</h3>
-                <% if !@likes.empty? %>
-                <% @likes.each do |like| %>
-                <div class="reservation-contents">
-                    <div class="reservation-event_title">イベントタイトル：<%= like.event.title %></div>
-                    <div class="reservation-event_details">
-                        <p class="reservation-date">日付：<%= like.event.date.to_fs(:date_stamp) %></p>
-                        <p class="reservation-datetime">時間：<%= like.event.start_time.to_s(:time_stamp) %> - <%= like.event.end_time.to_s(:time_stamp) %></p>
-                        <p class="reservation-event_place">場所：<%= like.event.place %></p>
-                        <p><%= link_to 'イベントの詳細を見る', like.event, { class: "btn btn-sm btn-outline-secondary cancel-btn" } %></p>
-                    </div>
-                </div>
-            <% end %>
-            <% else %>
-                <div class="alert alert-secondary text-center" role="alert">
-                    いいねしたイベントはありません。
-                </div>
-            <% end %>
-
+                <%= render partial: 'likes/like_event', locals: { likes: @likes } %>
             </div>
         </div>
     </div>
